@@ -3,7 +3,8 @@ import { Input } from "@/components/ui/input";
 import { DarkModeButton } from "@/components/DarkModeButton";
 import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
-import KanjiResultSkeleton from "@/components/KanjiResult/KanjiResultSkeleton";
+import KanjiResultSkeleton from "@/components/KanjiResult/Skeleton";
+import Card from "@/components/KanjiResult/Card";
 
 export default function Home() {
   return (
@@ -24,8 +25,7 @@ export default function Home() {
         </div>
         <div className="w-full md:w-1/2 flex flex-col gap-2 px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
           <KanjiResultSkeleton />
-          <KanjiResultSkeleton />
-          <KanjiResultSkeleton />
+          <Card />
         </div>
       </div>
       <div className="absolute bottom-5 w-full">
