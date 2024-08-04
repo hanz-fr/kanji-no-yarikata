@@ -3,8 +3,8 @@ import { Input } from "@/components/ui/input";
 import { DarkModeButton } from "@/components/DarkModeButton";
 import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
-import KanjiResultSkeleton from "@/components/KanjiResult/Skeleton";
-import Card from "@/components/KanjiResult/Card";
+import KanjiResultSkeleton from "@/components/KanjiResult/ResultSkeleton";
+import Card from "@/components/KanjiResult/ResultCard";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <DarkModeButton />
       <div className="flex flex-col h-screen items-center justify-center">
         {/* Search */}
-        <div className="flex flex-col gap-[30px] md:gap-[61px]">
+        <div className="flex flex-col gap-[30px] md:gap-[61px] mb-[100px]">
           <h1 className="text-center">漢字のやり方</h1>
           <div className="flex">
             <Input
@@ -25,8 +25,9 @@ export default function Home() {
           </div>
         </div>
         {/* Result */}
-        <div className="w-full md:w-1/2 flex flex-col px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
+        <div className="w-full absolute md:w-1/2 flex flex-col px-10 top-[55%] md:top-[55%] bg-white dark:bg-transparent z-10">
           {/* <KanjiResultSkeleton /> */}
+          <Card />
           <Card />
           <Card />
         </div>
