@@ -25,7 +25,7 @@ export default function Home() {
           </div>
         </div>
         {/* Result */}
-        <div className="w-full md:w-1/2 flex flex-col gap-4 px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
+        <div className="w-full md:w-1/2 flex flex-col px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
           {/* <KanjiResultSkeleton /> */}
           <Card />
           <Card />

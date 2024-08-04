@@ -1,8 +1,17 @@
+'use client';
+
 import React from "react";
 
+import { useRouter } from "next/navigation";
+
 const Card = () => {
+  const router = useRouter();
+
   return (
-    <div className="border border-r-0 border-l-0 border-b-0 border-t-gray-200 dark:border-t-zinc-800 border-b-gray-200 w-full h-14 md:h-16">
+    <div
+      className="border border-r-0 border-l-0 border-b-0 border-t-gray-200 dark:border-t-zinc-800 border-b-gray-200 w-full h-fit hover:bg-gray-100 dark:hover:bg-zinc-800 hover:cursor-pointer transition-colors"
+      onClick={() => router.push("/kanji/0")}
+    >
       <div className="flex justify-evenly h-full gap-4 md:gap-8">
         <div className="flex gap-4">
           {/* Kanji Leading */}
@@ -12,8 +21,12 @@ const Card = () => {
           {/* On'yomi Kun'yomi Column */}
           <div className="flex gap-2">
             <div className="flex flex-col gap-2 my-2">
-              <div className="w-12 h-8 border text-xs text-center text-[#C2C2C2]">音読み</div>
-              <div className="w-12 h-8 border text-xs text-center text-[#C2C2C2]">訓読み</div>
+              <div className="px-1 text-xs text-center text-[#C2C2C2] border">
+                音読み
+              </div>
+              <div className="px-1 text-xs text-center text-[#C2C2C2] border">
+                訓読み
+              </div>
             </div>
             <div className="flex flex-col gap-2 my-2">
               <div className="flex gap-[4px]">
