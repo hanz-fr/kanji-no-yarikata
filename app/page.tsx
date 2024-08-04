@@ -11,6 +11,7 @@ export default function Home() {
     <main>
       <DarkModeButton />
       <div className="flex flex-col h-screen items-center justify-center">
+        {/* Search */}
         <div className="flex flex-col gap-[30px] md:gap-[61px]">
           <h1 className="text-center">漢字のやり方</h1>
           <div className="flex">
@@ -23,8 +24,10 @@ export default function Home() {
             <div></div>
           </div>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col gap-2 px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
-          <KanjiResultSkeleton />
+        {/* Result */}
+        <div className="w-full md:w-1/2 flex flex-col gap-4 px-10 absolute top-[60%] md:top-[62%] bg-white dark:bg-transparent z-10">
+          {/* <KanjiResultSkeleton /> */}
+          <Card />
           <Card />
         </div>
       </div>

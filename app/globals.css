@@ -11,18 +11,18 @@
 
 @layer components {
   .onyomi-text {
-    @apply text-xs font-light
+    @apply text-xs md:text-sm font-light
   };
 
   .onyomi-romaji-text {
-    @apply text-xs text-[#949494] font-light
+    @apply text-xs md:text-sm text-[#949494] font-light
   };
 
   .kunyomi-text {
-    @apply text-xs font-light
+    @apply text-xs md:text-sm font-light
   }
 
   .kunyomi-romaji-text {
-    @apply text-xs text-[#949494] font-light
+    @apply text-xs md:text-sm text-[#949494] font-light
   }
 }
