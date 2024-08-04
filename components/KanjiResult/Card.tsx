@@ -7,7 +7,7 @@ const Card = () => {
         <div className="flex gap-4">
           {/* Kanji Leading */}
           <span className="w-10 md:w-12 h-10 md:h-12 my-auto">
-            <p className="font-bold text-2xl text-center p-2 bg-white">光</p>
+            <p className="font-bold text-2xl text-center p-2">光</p>
           </span>
           {/* On'yomi Kun'yomi Column */}
           <div className="flex gap-2">
