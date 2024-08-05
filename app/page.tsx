@@ -3,8 +3,8 @@ import { Input } from "@/components/ui/input";
 import { DarkModeButton } from "@/components/DarkModeButton";
 import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
-import KanjiResultSkeleton from "@/components/KanjiResult/ResultSkeleton";
-import Card from "@/components/KanjiResult/ResultCard";
+import ResultCard from "@/components/KanjiResult/ResultCard";
+import data from "../counterfeit_data.json";
 
 export default function Home() {
   return (
@@ -27,9 +27,18 @@ export default function Home() {
         {/* Result */}
         <div className="w-full absolute md:w-1/2 flex flex-col px-10 top-[55%] md:top-[55%] bg-white dark:bg-transparent z-10">
           {/* <KanjiResultSkeleton /> */}
-          <Card />
-          <Card />
-          <Card />
+          {data.data.map((e) => (
+            <ResultCard
+              id={e.id}
+              key={e.id}
+              kanji={e.kanji}
+              meaning={e.meaning}
+              kunyomi={e.kunyomi}
+              kunyomiRomaji={e.kunyomiRomaji}
+              onyomi={e.onyomi}
+              onyomiRomaji={e.onyomiRomaji}
+            />
+          ))}
         </div>
       </div>
       <div className="absolute bottom-5 w-full">

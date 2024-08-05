@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "id": "0001n5g1",
+      "kanji": "日",
+      "meaning": "sun, day, japan",
+      "jlpt": "N5",
+      "grade": 1,
+      "strokeCount": 4,
+      "onyomi": "ニチ、ジツ",
+      "onyomiRomaji": "nichi, jitsu",
+      "kunyomi": "ひ、-ひ、-か、-か、-か",
+      "kunyomiRomaji": "hi, -hi, -ka",
+      "radical": "日",
+      "radicalNumber": 72,
+      "frequency": "Common",
+      "components": ["日"],
+      "joyoListStatus": "常用 jōyō (regular-use)",
+      "mnemonic": "Sun with spot",
+      "examples": [
+        {
+          "word": "日々",
+          "kanaReading": "ひび",
+          "meaning": "day to day",
+          "kanjiReferences": [""]
+        },
+        {
+          "word": "本日",
+          "kanaReading": "ほんじつ",
+          "meaning": "today",
+          "kanjiReferences": ["本 0031n5g1"]
+        },
+        {
+          "word": "二日",
+          "kanaReading": "ふつか",
+          "meaning": "second day",
+          "kanjiReferences": ["二 0003n5g1"]
+        }
+      ]
+    },
+    {
+      "id": "0137n3g2",
+      "kanji": "光",
+      "meaning": "ray, light",
+      "jlpt": "N3",
+      "grade": 2,
+      "strokeCount": 6,
+      "onyomi": "コウ",
+      "onyomiRomaji": "kou",
+      "kunyomi": "ひか(る)、ひかり",
+      "kunyomiRomaji": "hikaru, hikari",
+      "radical": "儿",
+      "radicalNumber": 10,
+      "frequency": "Common",
+      "components": ["⺌ (小)", "兀"],
+      "joyoListStatus": "常用 jōyō (regular-use)",
+      "mnemonic": "A person carries fire that shines light",
+      "examples": [
+        {
+          "word": "日光",
+          "kanaReading": "にっこう",
+          "meaning": "sunshine, sunlight",
+          "kanjiReferences": ["日 0001n5g1"]
+        },
+        {
+          "word": "月光",
+          "kanaReading": "げっこう",
+          "meaning": "moonlight",
+          "kanjiReferences": ["月 0023n5g1"]
+        },
+        {
+          "word": "光年",
+          "kanaReading": "こうねん",
+          "meaning": "light year",
+          "kanjiReferences": ["光 0117n5g1"]
+        }
+      ]
+    }
+  ]
+}
