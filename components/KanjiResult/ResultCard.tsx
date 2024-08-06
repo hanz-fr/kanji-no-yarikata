@@ -30,7 +30,7 @@ const ResultCard: React.FC<IResultCard> = ({
           </span>
           {/* On'yomi Kun'yomi Column */}
           <div className="flex gap-2 md:gap-4">
-            <div className="flex flex-col gap-2 my-auto">
+            <div className="flex flex-col gap-5 my-auto">
               <div className="px-1 text-nowrap text-xs text-center text-[#C2C2C2] border">
                 音読み
               </div>

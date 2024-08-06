@@ -5,6 +5,7 @@ import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
 import ResultCard from "@/components/KanjiResult/ResultCard";
 import data from "../counterfeit_data.json";
+import KanjiResultSkeleton from "@/components/KanjiResult/ResultSkeleton";
 
 export default function Home() {
   return (
@@ -25,8 +26,8 @@ export default function Home() {
           </div>
         </div>
         {/* Result */}
-        <div className="w-full absolute md:w-1/2 flex flex-col px-10 top-[55%] md:top-[55%] bg-white dark:bg-transparent z-10">
-          {/* <KanjiResultSkeleton /> */}
+        <div className="w-full absolute md:w-1/2 flex flex-col px-10 top-[52%] md:top-[55%] bg-white dark:bg-transparent z-10">
+          <KanjiResultSkeleton />
           {data.data.map((e) => (
             <ResultCard
               id={e.id}
