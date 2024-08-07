@@ -5,21 +5,46 @@ import { Button } from "@/components/ui/button";
 
 export default function loading() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full md:w-2/3 mx-auto h-screen gap-[10px] px-5">
       <FiArrowLeft className="m-2" size={25} color="#ADADAD" />
       {/* Kanji Heading Container */}
       <div className="flex justify-center w-full">
         <div className="flex flex-col gap-3">
-          <span className="flex justify-center w-32 h-32 bg-gray-100"></span>
-          <span className="flex justify-center">(ray, light)</span>
-          <div className="flex justify-center gap-2">
-            <Button className="p-3 rounded-full bg-[#D9D9D9] ">
-              <FiVolume2 className="text-lg" color="black" />
-            </Button>
-            <Button className="p-3 rounded-full bg-[#D9D9D9] ">
-              <MdOutlineDraw className="text-lg" color="black" />
-            </Button>
+          <span className="flex w-32 h-32 rounded-sm bg-gray-100 animate-pulse"></span>
+          <div className="w-full flex justify-center">
+            <span className="w-20 h-8 rounded-sm bg-gray-100 animate-pulse"></span>
           </div>
+          <div className="flex justify-center gap-2">
+            <div className="w-10 h-10 rounded-sm bg-gray-100 animate-pulse"></div>
+            <div className="w-10 h-10 rounded-sm bg-gray-100 animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+      {/* JLPT, Grade, and Strokes Container */}
+      <div className="flex gap-1 justify-evenly w-full h-1/2 rounded-sm bg-gray-100 animate-pulse">
+        <div className="w-14 h-14 rounded-md my-auto bg-gray-200 animate-pulse"></div>
+        <div className="w-14 h-14 rounded-md my-auto bg-gray-200 animate-pulse"></div>
+        <div className="w-14 h-14 rounded-md my-auto bg-gray-200 animate-pulse"></div>
+      </div>
+      {/* On'yomi Kun'yomi Container */}
+      <div className="grid grid-cols-2 px-10 gap-x-10 place-items-center w-full h-3/4 rounded-sm bg-gray-100 animate-pulse">
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-"></div>
+      </div>
+      {/* Main Kanji Information Container */}
+      <div className="grid grid-cols-2 px-10 gap-x-10 place-items-center w-full h-3/4 rounded-sm bg-gray-100 animate-pulse">
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+        <div className="w-full h-6 md:h-8 rounded-md bg-gray-200 animate-"></div>
+      </div>
+      {/* Example Container */}
+      <div className="w-full h-1/2 mb-3 rounded-sm bg-gray-100 animate-pulse">
+        <div className="flex gap-4 w-full m-5">
+          <div className="w-32 h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
+          <div className="w-20 h-6 md:h-8 rounded-md bg-gray-200 animate-pulse"></div>
         </div>
       </div>
     </div>
