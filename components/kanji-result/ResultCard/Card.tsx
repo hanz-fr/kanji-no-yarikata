@@ -3,7 +3,6 @@
 import React from "react";
 
 import { useRouter } from "next/navigation";
-
 import { IResultCard } from "@/interfaces";
 
 const ResultCard: React.FC<IResultCard> = ({
@@ -15,6 +14,7 @@ const ResultCard: React.FC<IResultCard> = ({
   kunyomiRomaji,
   meaning
 }) => {
+  
   const router = useRouter();
 
   return (

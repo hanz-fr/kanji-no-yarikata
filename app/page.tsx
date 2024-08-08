@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { DarkModeButton } from "@/components/DarkModeButton";
 import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
-import ResultCard from "@/components/KanjiResult/ResultCard";
+import ResultCard from "@/components/kanji-result/ResultCard/Card";
 import data from "../counterfeit_data.json";
 
 export default function Home() {
@@ -21,7 +21,6 @@ export default function Home() {
               className="focus:ring-0 focus-visible:ring-1 focus-visible:ring-offset-0 border-[#D0D0D0] placeholder:text-[#8D8D8D] transition-all rounded-tr-none rounded-br-none z-10"
             />
             <FilterDropdown />
-            <div></div>
           </div>
         </div>
         {/* Result */}
