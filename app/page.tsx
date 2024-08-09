@@ -10,44 +10,44 @@ export default function Home() {
   return (
     <main>
       <DarkModeButton />
-      <div className="flex flex-col h-screen items-center justify-center">
-        {/* Search */}
-        <div className="flex flex-col gap-[30px] md:gap-[61px] mb-[100px]">
-          <h1 className="text-center">漢字のやり方</h1>
-          <div className="flex">
-            <Input
-              type="search"
-              placeholder="Search kanji..."
-              className="focus:ring-0 focus-visible:ring-1 focus-visible:ring-offset-0 border-[#D0D0D0] placeholder:text-[#8D8D8D] transition-all rounded-tr-none rounded-br-none z-10"
-            />
-            <FilterDropdown />
+      <div className="flex flex-col h-screen items-center justify-between">
+        <div></div>
+        <div className="w-full md:w-1/2 flex flex-col px-10">
+          {/* Search */}
+          <div className="w-full md:w-1/2 mx-auto flex flex-col gap-[30px] md:gap-[61px] mb-[20px]">
+            <h1 className="text-center">漢字のやり方</h1>
+            <div className="flex">
+              <Input
+                type="search"
+                placeholder="Search kanji..."
+                className="focus:ring-0 focus-visible:ring-1 focus-visible:ring-offset-0 border-[#D0D0D0] placeholder:text-[#8D8D8D] transition-all rounded-tr-none rounded-br-none z-10"
+              />
+              <FilterDropdown />
+            </div>
+          </div>
+          {/* Result */}
+          <div className="bg-white dark:bg-transparent">
+            {data.data.map((e) => (
+              <ResultCard
+                id={e.id}
+                key={e.id}
+                kanji={e.kanji}
+                meaning={e.meaning}
+                kunyomi={e.kunyomi}
+                kunyomiRomaji={e.kunyomiRomaji}
+                onyomi={e.onyomi}
+                onyomiRomaji={e.onyomiRomaji}
+              />
+            ))}
           </div>
         </div>
-        {/* Result */}
-        <div className="w-full absolute md:w-1/2 flex flex-col px-10 top-[52%] md:top-[55%] bg-white dark:bg-transparent z-10">
-          {data.data.map((e) => (
-            <ResultCard
-              id={e.id}
-              key={e.id}
-              kanji={e.kanji}
-              meaning={e.meaning}
-              kunyomi={e.kunyomi}
-              kunyomiRomaji={e.kunyomiRomaji}
-              onyomi={e.onyomi}
-              onyomiRomaji={e.onyomiRomaji}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="absolute bottom-5 w-full">
-        <div className="flex justify-center">
-          <Link
-            className="font-thin underline text-xs md:text-lg hover:text-zinc-700 dark:hover:text-gray-300"
-            href={"/all-kanji"}
-          >
-            All Kanji Lists
-          </Link>
-        </div>
+        {/* All Kanji List Link */}
+        <Link
+          className="mb-3 md:mb-5 font-thin underline text-xs md:text-lg hover:text-zinc-700 dark:hover:text-gray-300"
+          href={"/all-kanji"}
+        >
+          All Kanji Lists
+        </Link>
       </div>
     </main>
   );
