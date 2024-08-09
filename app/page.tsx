@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { DarkModeButton } from "@/components/DarkModeButton";
 import FilterDropdown from "@/components/FilterDropdown";
 import Link from "next/link";
-import ResultCard from "@/components/kanji-result/ResultCard/Card";
+import ResultCard from "@/components/ResultCard/Card";
 import data from "../counterfeit_data.json";
 
 export default function Home() {
