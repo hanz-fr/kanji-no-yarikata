@@ -1,9 +1,7 @@
 import React from "react";
-import { FiArrowLeft, FiVolume2 } from "react-icons/fi";
-import { MdOutlineDraw } from "react-icons/md";
-import { Button } from "@/components/ui/button";
+import { FiArrowLeft } from "react-icons/fi";
 
-export default function loading() {
+export default function Loading() {
   return (
     <div className="flex flex-col w-full md:w-2/3 mx-auto h-screen gap-[10px] px-5">
       <FiArrowLeft className="m-2" size={25} color="#ADADAD" />

@@ -11,14 +11,16 @@ const KanjiPage = () => {
 
   return (
     <div className="flex flex-col gap-[10px] px-5 py-3">
-      <FiArrowLeft
-        className="m-2"
-        size={25}
-        color="#ADADAD"
-        onClick={() => {
-          router.back();
-        }}
-      />
+      <div className="w-full md:w-1/2 md:mx-auto">
+        <FiArrowLeft
+          className="cursor-pointer"
+          size={25}
+          color="#ADADAD"
+          onClick={() => {
+            router.back();
+          }}
+        />
+      </div>
       {/* Kanji Heading Container */}
       <div className="flex justify-center w-full">
         <div className="flex flex-col gap-3">
