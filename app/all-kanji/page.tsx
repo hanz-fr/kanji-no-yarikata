@@ -52,17 +52,9 @@ const AllKanjiPage = () => {
       {/* N4 Kanji */}
       <div className="flex flex-col">
         <span>N4 Kanji</span>
-        <hr className="border-black mt-3" />
+        <hr className="border-black dark:border-white mt-3" />
       </div>
-      <div className="grid grid-cols-4 py-5 gap-y-4 place-items-center">
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
+      <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
@@ -87,17 +79,9 @@ const AllKanjiPage = () => {
       {/* N3 Kanji */}
       <div className="flex flex-col">
         <span>N3 Kanji</span>
-        <hr className="border-black mt-3" />
+        <hr className="border-black dark:border-white mt-3" />
       </div>
-      <div className="grid grid-cols-4 py-5 gap-y-4 place-items-center">
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
-        <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
+      <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
         <div className="w-14 h-14  border-[1px] rounded-sm border-[#E4E4E4]"></div>
