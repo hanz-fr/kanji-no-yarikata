@@ -1,15 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import { FiArrowLeft, FiVolume2 } from "react-icons/fi";
 import { MdOutlineDraw } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Loading from "./loading";
 
 const KanjiPage = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  return (
+  return isLoading ? <Loading/> : (
     <div className="flex flex-col gap-[10px] px-5 py-3">
       <div className="w-full md:w-1/2 md:mx-auto">
         <FiArrowLeft
