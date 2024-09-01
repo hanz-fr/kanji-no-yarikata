@@ -14,7 +14,7 @@ export default function SearchBar() {
 
   return (
     <div className="w-full md:w-1/2 mx-auto flex flex-col gap-[30px] md:gap-[61px] mb-[20px]">
-      <h1 className="text-center text-nowrap">漢字のやり方</h1>
+      <h1 className="text-center  text-nowrap">漢字のやり方</h1>
       <div className="flex">
         <Input
           type="search"
