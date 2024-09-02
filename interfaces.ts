@@ -19,11 +19,11 @@ export interface IKanji {
 }
 
 export interface IResultCard {
-  id: string;
-  kanji: string;
-  meaning: string;
-  kunyomi: string;
-  kunyomiRomaji: string;
-  onyomi: string;
-  onyomiRomaji: string;
+  id?: string;
+  kanji?: string;
+  meaning?: string;
+  kunyomi?: string;
+  kunyomiRomaji?: string;
+  onyomi?: string;
+  onyomiRomaji?: string;
 }

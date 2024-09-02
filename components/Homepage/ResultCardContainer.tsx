@@ -1,12 +1,46 @@
-import React from "react";
-import ResultCard from "../ResultCard/Card";
+"use client";
 
-export default function ResultCardContainer(props: {
-    data: any,
-}) {
+import React, { useEffect, useState } from "react";
+
+import ResultCard from "../ResultCard/Card";
+import { IResultCard } from "@/interfaces";
+import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
+
+export default function ResultCardContainer() {
+  const { searchInputValue } = useSearchKanjiContext();
+  const [data, setData] = useState<IResultCard[]>();
+  const [errorStatus, setErrorStatus] = useState(null);
+
+  /* Fetch to search-kanji API */
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(`/api/search-kanji?query=${searchInputValue}`);
+
+        if (!res.ok) {
+          throw new Error("Error, something bad happened.");
+        }
+
+        const result = await res.json();
+        setData(result.data);
+
+      } catch (e: any) {
+        console.log(e);
+        setErrorStatus(e.message);
+      }
+    }
+
+    /* Only fetch when there is an input from user. */
+    if(searchInputValue != '') {
+      fetchData();
+    } else {
+      setData([]);
+    }
+  }, [searchInputValue]);
+
   return (
     <div className="bg-white dark:bg-transparent">
-      {props.data.data.map((e:any) => (
+      {data?.map((e: any) => (
         <ResultCard
           id={e.id}
           key={e.id}
@@ -17,7 +51,7 @@ export default function ResultCardContainer(props: {
           onyomi={e.onyomi}
           onyomiRomaji={e.onyomiRomaji}
         />
-      ))}
+      )).slice(0,3)}
     </div>
   );
 }

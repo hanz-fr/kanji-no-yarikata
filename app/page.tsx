@@ -18,7 +18,7 @@ export default function Home() {
           <EmptyDiv />
           <SearchAndResultContainer>
             <SearchBar />
-            <ResultCardContainer data={data} />
+            <ResultCardContainer />
           </SearchAndResultContainer>
           <Link
             className="mb-3 md:mb-5 font-thin underline text-xs md:text-lg hover:text-zinc-700 dark:hover:text-gray-300"

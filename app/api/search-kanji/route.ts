@@ -10,8 +10,5 @@ export async function GET(request: NextRequest) {
   let data = await fetch(`${API_URL}/kanji/search?query=${query}`);
   let res = await data.json();
 
-  return Response.json({
-    status: "OK",
-    result: res,
-  });
+  return Response.json(res);
 }
