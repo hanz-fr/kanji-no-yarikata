@@ -18,17 +18,17 @@ const ResultCard: React.FC<IResultCard> = ({
   meaning,
 }) => {
   return (
-    <Container kanjiId={id}>
+    <Container kanjiId={id!}>
       <KanjiGroupingContainer>
-        <Kanji kanji={kanji} />
+        <Kanji kanji={kanji!} />
         <OnKun
-          onyomi={onyomi}
-          onyomiRomaji={onyomiRomaji}
-          kunyomi={kunyomi}
-          kunyomiRomaji={kunyomiRomaji}
+          onyomi={onyomi!}
+          onyomiRomaji={onyomiRomaji!}
+          kunyomi={kunyomi!}
+          kunyomiRomaji={kunyomiRomaji!}
         />
       </KanjiGroupingContainer>
-      <KanjiMeaningText meaning={meaning} />
+      <KanjiMeaningText meaning={meaning!} />
     </Container>
   );
 };
