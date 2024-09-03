@@ -1,6 +1,5 @@
 import { DarkModeButton } from "@/components/DarkModeButton";
 import Link from "next/link";
-import data from "../counterfeit_data.json";
 import Container from "@/components/Homepage/Container";
 import SearchAndResultContainer from "@/components/Homepage/SearchAndResultContainer";
 import SearchBar from "@/components/Homepage/SearchBar";
