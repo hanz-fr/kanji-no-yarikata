@@ -23,15 +23,13 @@ export default function ResultCardContainer() {
 
         const result = await res.json();
         setData(result.data);
-
       } catch (e: any) {
-        console.log(e);
         setErrorStatus(e.message);
       }
     }
 
     /* Only fetch when there is an input from user. */
-    if(searchInputValue != '') {
+    if (searchInputValue != "") {
       fetchData();
     } else {
       setData([]);
@@ -40,18 +38,23 @@ export default function ResultCardContainer() {
 
   return (
     <div className="bg-white dark:bg-transparent">
-      {data?.map((e: any) => (
-        <ResultCard
-          id={e.id}
-          key={e.id}
-          kanji={e.kanji}
-          meaning={e.meaning}
-          kunyomi={e.kunyomi}
-          kunyomiRomaji={e.kunyomiRomaji}
-          onyomi={e.onyomi}
-          onyomiRomaji={e.onyomiRomaji}
-        />
-      )).slice(0,3)}
+      <div className="text-center">
+        {errorStatus != null ? errorStatus : ""}
+      </div>
+      {data
+        ?.map((e: any) => (
+          <ResultCard
+            id={e.id}
+            key={e.id}
+            kanji={e.kanji}
+            meaning={e.meaning}
+            kunyomi={e.kunyomi}
+            kunyomiRomaji={e.kunyomiRomaji}
+            onyomi={e.onyomi}
+            onyomiRomaji={e.onyomiRomaji}
+          />
+        ))
+        .slice(0, 3)}
     </div>
   );
 }
