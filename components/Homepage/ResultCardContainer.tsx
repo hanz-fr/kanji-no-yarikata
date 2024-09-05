@@ -10,20 +10,28 @@ export default function ResultCardContainer() {
   const { searchInputValue } = useSearchKanjiContext();
   const [data, setData] = useState<IResultCard[]>();
   const [errorStatus, setErrorStatus] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(false);
+    
   /* Fetch to search-kanji API */
   useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
+
         const res = await fetch(`/api/search-kanji?query=${searchInputValue}`);
 
         if (!res.ok) {
+          setIsLoading(false);
           throw new Error("Error, something bad happened.");
         }
 
         const result = await res.json();
+
         setData(result.data);
+        setIsLoading(false);
+
       } catch (e: any) {
+        setIsLoading(false);
         setErrorStatus(e.message);
       }
     }
@@ -41,6 +49,11 @@ export default function ResultCardContainer() {
       <div className="text-center">
         {errorStatus != null ? errorStatus : ""}
       </div>
+      {/* <div className="text-center">
+        {searchInputValue?.length > 0 && data?.length === 0
+          ? "no results."
+          : ""}
+      </div> */}
       {data
         ?.map((e: any) => (
           <ResultCard
