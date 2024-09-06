@@ -13,6 +13,9 @@ export default function ResultCardContainer() {
   const [errorStatus, setErrorStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
     
+  console.log(searchInputValue);
+  console.log(isLoading);
+
   /* Fetch to search-kanji API */
   useEffect(() => {
     async function fetchData() {
@@ -46,7 +49,7 @@ export default function ResultCardContainer() {
   }, [searchInputValue]);
 
 
-  if (isLoading) return <KanjiResultSkeleton />
+  if (isLoading && searchInputValue != undefined) return <KanjiResultSkeleton />
 
   if (searchInputValue?.length > 0 && data?.length === 0) return <div className="text-center">No result</div>
 

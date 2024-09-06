@@ -14,7 +14,6 @@ export default function SearchBar() {
   /* set search value only after user finishes typing */
   useEffect(() => {
     const delaySearchFn = setTimeout(() => {
-      console.log(searchInputValue);
       setSearchInputValue(inputListener!);
     }, 700);
 
