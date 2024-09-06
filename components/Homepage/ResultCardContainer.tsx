@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ResultCard from "../ResultCard/Card";
 import { IResultCard } from "@/interfaces";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
+import KanjiResultSkeleton from "../ResultCard/CardSkeleton";
 
 export default function ResultCardContainer() {
   const { searchInputValue } = useSearchKanjiContext();
@@ -44,16 +45,16 @@ export default function ResultCardContainer() {
     }
   }, [searchInputValue]);
 
-  return (
+
+  if (isLoading) return <KanjiResultSkeleton />
+
+  if (searchInputValue?.length > 0 && data?.length === 0) return <div>No result</div>
+
+  if (data) return (
     <div className="bg-white dark:bg-transparent">
       <div className="text-center">
         {errorStatus != null ? errorStatus : ""}
       </div>
-      {/* <div className="text-center">
-        {searchInputValue?.length > 0 && data?.length === 0
-          ? "no results."
-          : ""}
-      </div> */}
       {data
         ?.map((e: any) => (
           <ResultCard
