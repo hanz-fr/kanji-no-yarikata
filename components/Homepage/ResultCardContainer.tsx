@@ -48,7 +48,7 @@ export default function ResultCardContainer() {
 
   if (isLoading) return <KanjiResultSkeleton />
 
-  if (searchInputValue?.length > 0 && data?.length === 0) return <div>No result</div>
+  if (searchInputValue?.length > 0 && data?.length === 0) return <div className="text-center">No result</div>
 
   if (data) return (
     <div className="bg-white dark:bg-transparent">
