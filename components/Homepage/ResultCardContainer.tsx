@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
-import ResultCard from "../ResultCard/Card";
 import { IResultCard } from "@/interfaces";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
+
+import ResultCard from "../ResultCard/Card";
 import KanjiResultSkeleton from "../ResultCard/CardSkeleton";
 
 export default function ResultCardContainer() {
@@ -48,10 +48,7 @@ export default function ResultCardContainer() {
     }
   }, [searchInputValue]);
 
-
   if (isLoading && searchInputValue != undefined) return <KanjiResultSkeleton />
-
-  if (searchInputValue?.length > 0 && data?.length === 0) return <div className="text-center">No result</div>
 
   if (data) return (
     <div className="bg-white dark:bg-transparent">
