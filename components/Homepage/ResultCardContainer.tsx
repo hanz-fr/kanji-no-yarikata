@@ -12,9 +12,6 @@ export default function ResultCardContainer() {
   const [data, setData] = useState<IResultCard[]>();
   const [errorStatus, setErrorStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-    
-  console.log(searchInputValue);
-  console.log(isLoading);
 
   /* Fetch to search-kanji API */
   useEffect(() => {

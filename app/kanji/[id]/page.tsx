@@ -125,7 +125,7 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
         </div>
         <div className="flex w-full justify-between">
           <span className="font-normal text-nowrap">Components :</span>
-          <span className="font-thin text-end">{kanjiData?.components}</span>
+          <span className="font-thin text-end">{kanjiData?.kanjiComponents.map((e: any) => e.component)}</span>
         </div>
         <div className="flex w-full justify-between">
           <span className="font-normal text-nowrap">Joyo Status :</span>
@@ -143,13 +143,15 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
       <div className="flex flex-col w-full px-5 gap-4 md:w-1/2 md:mx-auto h-1/2 rounded-sm border py-4 text-sm">
         <span>Examples</span>
         <table className="table-fixed w-full">
-          {kanjiData?.examples?.map((e) => (
-            <tr className="text-start md:text-center">
-              <td className="p-2 font-semibold"></td>
-              <td className="p-2"></td>
-              <td className="p-2"></td>
+          <tbody>
+          {kanjiData?.kanjiExamples?.map((e: any) => (
+            <tr className="text-start md:text-center" key={e.id}>
+              <td className="p-2 font-semibold">{e.word}</td>
+              <td className="p-2">{e.kanaReading}</td>
+              <td className="p-2">{e.meaning}</td>
             </tr>
           ))}
+          </tbody>
         </table>
       </div>
     </div>

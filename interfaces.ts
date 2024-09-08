@@ -5,17 +5,17 @@ export interface IKanji {
   jlpt: string;
   grade: number;
   strokeCount: number;
-  kunyomi: string;
-  kunyomiRomaji: string;
   onyomi: string;
   onyomiRomaji: string;
+  kunyomi: string;
+  kunyomiRomaji: string;
   radical: string;
   radicalNumber: number;
   frequency: string;
-  components: Array<String>;
   joyoListStatus: string;
   mnemonic: string;
-  examples: Array<object>;
+  kanjiExamples: Array<object>;
+  kanjiComponents: Array<String>;
 }
 
 export interface IResultCard {
