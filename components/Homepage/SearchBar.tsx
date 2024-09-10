@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+import FilterDropdown from "../FilterDropdown";
 import { Input } from "../ui/input";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
-
-import FilterDropdown from "../FilterDropdown";
 
 export default function SearchBar() {
   const { searchInputValue, setSearchInputValue } = useSearchKanjiContext();

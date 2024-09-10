@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+
 import { SearchKanjiContext } from "./SearchKanjiContext";
 
 export const SearchKanjiProvider = ({ children }: any) => {

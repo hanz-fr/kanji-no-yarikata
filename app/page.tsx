@@ -1,11 +1,11 @@
-import { DarkModeButton } from "@/components/DarkModeButton";
 import Link from "next/link";
+
 import Container from "@/components/Homepage/Container";
 import SearchAndResultContainer from "@/components/Homepage/SearchAndResultContainer";
 import SearchBar from "@/components/Homepage/SearchBar";
 import ResultCardContainer from "@/components/Homepage/ResultCardContainer";
 import EmptyDiv from "@/components/Homepage/EmptyDiv";
-
+import { DarkModeButton } from "@/components/DarkModeButton";
 import { SearchKanjiProvider } from "@/context/SearchKanjiContextProvider";
 
 export default function Home() {

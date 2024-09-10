@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
+
 import React from "react";
+
 import { FiArrowLeft } from "react-icons/fi";
 
 const KanjiPageSkeleton = () => {

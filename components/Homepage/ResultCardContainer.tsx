@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { IResultCard } from "@/interfaces";
-import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
 
 import ResultCard from "../ResultCard/Card";
 import KanjiResultSkeleton from "../ResultCard/CardSkeleton";
+import { IResultCard } from "@/interfaces";
+import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
 
 export default function ResultCardContainer() {
   const { searchInputValue } = useSearchKanjiContext();

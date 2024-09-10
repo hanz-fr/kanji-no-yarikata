@@ -1,12 +1,12 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import React, { useEffect, useState } from "react";
 
+import Loading from "./loading";
 import { FiArrowLeft, FiVolume2 } from "react-icons/fi";
 import { MdOutlineDraw } from "react-icons/md";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import Loading from "./loading";
 import { IKanji } from "@/interfaces";
 
 const KanjiPage = ({ params }: { params: { id: string } }) => {

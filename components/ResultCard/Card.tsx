@@ -1,4 +1,5 @@
 import React from "react";
+
 import { IResultCard } from "@/interfaces";
 import {
   Container,
