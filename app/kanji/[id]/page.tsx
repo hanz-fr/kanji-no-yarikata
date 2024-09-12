@@ -8,6 +8,7 @@ import { FiArrowLeft, FiVolume2 } from "react-icons/fi";
 import { MdOutlineDraw } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { IKanji } from "@/interfaces";
+import KanjiReferenceHover from "@/components/KanjiReferenceHover/KanjiReferenceHover";
 
 const KanjiPage = ({ params }: { params: { id: string } }) => {
   const id = params.id;
@@ -125,7 +126,9 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
         </div>
         <div className="flex w-full justify-between">
           <span className="font-normal text-nowrap">Components :</span>
-          <span className="font-thin text-end">{kanjiData?.kanjiComponents.map((e: any) => e.component)}</span>
+          <span className="font-thin text-end">
+            {kanjiData?.kanjiComponents.map((e: any) => e.component)}
+          </span>
         </div>
         <div className="flex w-full justify-between">
           <span className="font-normal text-nowrap">Joyo Status :</span>
@@ -144,13 +147,18 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
         <span>Examples</span>
         <table className="table-fixed w-full">
           <tbody>
-          {kanjiData?.kanjiExamples?.map((e: any) => (
-            <tr className="text-start md:text-center" key={e.id}>
-              <td className="p-2 font-semibold">{e.word}</td>
-              <td className="p-2">{e.kanaReading}</td>
-              <td className="p-2">{e.meaning}</td>
-            </tr>
-          ))}
+            {kanjiData?.kanjiExamples?.map((e: any) => (
+              <tr className="text-start md:text-center" key={e.id}>
+                <td className="p-2">
+                  <KanjiReferenceHover
+                    text={e.word}
+                    kanjiReferences={e.kanjiReferences}
+                  ></KanjiReferenceHover>
+                </td>
+                <td className="p-2">{e.kanaReading}</td>
+                <td className="p-2">{e.meaning}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
