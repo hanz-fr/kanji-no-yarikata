@@ -17,7 +17,7 @@ const KanjiReferenceHover = (props: {
         </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-fit bg-white">
-        <div className="flex justify-between space-x-4">
+        <div className="flex justify-between space-x-4 dark:text-black">
           {props.kanjiReferences.map((e: any) => (
             <>{e.kanji}<br/></>
           ))}
