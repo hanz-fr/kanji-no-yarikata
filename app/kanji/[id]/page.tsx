@@ -18,14 +18,22 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
   const [kanjiData, setKanjiData] = useState<IKanji>();
   const [errorStatus, setErrorStatus] = useState(null);
 
+  console.log(kanjiData);
+
   useEffect(() => {
-    fetch(`/api/get-kanji?id=${id}`).then((res) =>
-      res.json().then((data) => {
-        setKanjiData(data?.data);
-        setIsLoading(false);
-      })
-    );
+    try {
+      fetch(`/api/get-kanji?id=${id}`).then((res) =>
+        res.json().then((data) => {
+          setKanjiData(data?.data);
+          setIsLoading(false);
+        })
+      );
+    } catch (error: any) {
+      setErrorStatus(error);
+    }
   }, []);
+
+  if (errorStatus != null) return <div> Something wrong happened</div>;
 
   return isLoading ? (
     <Loading />
@@ -149,12 +157,18 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
           <tbody>
             {kanjiData?.kanjiExamples?.map((e: any) => (
               <tr className="text-start md:text-center" key={e.id}>
-                <td className="p-2">
-                  <KanjiReferenceHover
-                    text={e.word}
-                    kanjiReferences={e.kanjiReferences}
-                  ></KanjiReferenceHover>
-                </td>
+                {e.kanjiReferences.length > 0 ? (
+                  <td className="text-center">
+                    <KanjiReferenceHover
+                      text={e.word}
+                      kanjiReferences={e.kanjiReferences}
+                    ></KanjiReferenceHover>
+                  </td>
+                ) : (
+                  <td className="text-center font-semibold">
+                    {e.word}
+                  </td>
+                )}
                 <td className="p-2">{e.kanaReading}</td>
                 <td className="p-2">{e.meaning}</td>
               </tr>
