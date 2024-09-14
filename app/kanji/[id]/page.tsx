@@ -4,11 +4,12 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 import Loading from "./loading";
+import KanjiReferenceHover from "@/components/KanjiReferenceHover/KanjiReferenceHover";
+import Error from "./error";
 import { FiArrowLeft, FiVolume2 } from "react-icons/fi";
 import { MdOutlineDraw } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { IKanji } from "@/interfaces";
-import KanjiReferenceHover from "@/components/KanjiReferenceHover/KanjiReferenceHover";
 
 const KanjiPage = ({ params }: { params: { id: string } }) => {
   const id = params.id;
@@ -16,24 +17,29 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [kanjiData, setKanjiData] = useState<IKanji>();
-  const [errorStatus, setErrorStatus] = useState(null);
-
-  console.log(kanjiData);
+  const [errorStatus, setErrorStatus] = useState("");
+  const [errorCode, setErrorCode] = useState(0);
 
   useEffect(() => {
-    try {
-      fetch(`/api/get-kanji?id=${id}`).then((res) =>
-        res.json().then((data) => {
-          setKanjiData(data?.data);
-          setIsLoading(false);
-        })
-      );
-    } catch (error: any) {
-      setErrorStatus(error);
-    }
+    const fetchData = async () => {
+      const res = await fetch(`/api/get-kanji?id=${id}`);
+
+      if (res.ok) {
+        const json = await res.json();
+        const data = await json.data;
+        setKanjiData(data);
+        setIsLoading(false);
+      } else {
+        setErrorCode(res.status);
+        setErrorStatus(res.statusText.toString());
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  if (errorStatus != null) return <div> Something wrong happened</div>;
+  if (errorStatus != "") return <Error code={errorCode} status={errorStatus} />;
 
   return isLoading ? (
     <Loading />
@@ -165,9 +171,7 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
                     ></KanjiReferenceHover>
                   </td>
                 ) : (
-                  <td className="text-center font-semibold">
-                    {e.word}
-                  </td>
+                  <td className="text-center font-semibold">{e.word}</td>
                 )}
                 <td className="p-2">{e.kanaReading}</td>
                 <td className="p-2">{e.meaning}</td>
