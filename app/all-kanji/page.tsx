@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Loading from "./loading";
 import { FiArrowLeft } from "react-icons/fi";
 import { IKanji } from "@/interfaces";
+import Link from "next/link";
 
 const AllKanjiPage = () => {
   const router = useRouter();
@@ -55,11 +56,14 @@ const AllKanjiPage = () => {
       </div>
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N5Kanji?.map((e) => (
-          <div className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4]">
+          <Link
+            href={`/kanji/${e.id}`}
+            className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          >
             <span className="h-full items-center flex justify-center">
               {e.kanji}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
       {/* N4 Kanji */}
@@ -69,11 +73,14 @@ const AllKanjiPage = () => {
       </div>
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N4Kanji?.map((e) => (
-          <div className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4]">
+          <Link
+            href={`/kanji/${e.id}`}
+            className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          >
             <span className="h-full items-center flex justify-center">
               {e.kanji}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
       {/* N3 Kanji */}
@@ -83,11 +90,14 @@ const AllKanjiPage = () => {
       </div>
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N3Kanji?.map((e) => (
-          <div className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4]">
+          <Link
+            href={`/kanji/${e.id}`}
+            className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          >
             <span className="h-full items-center flex justify-center">
               {e.kanji}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
