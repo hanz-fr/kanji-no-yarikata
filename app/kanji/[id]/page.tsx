@@ -32,7 +32,7 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
         const json = await res.json();
         const data = await json.data;
         setKanjiData(data);
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 100);
       } else {
         setErrorCode(res.status);
         setErrorStatus(res.statusText.toString());

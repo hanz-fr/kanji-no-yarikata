@@ -30,7 +30,7 @@ const AllKanjiPage = () => {
         setN4Kanji(await N4res.data);
         setN3Kanji(await N3res.data);
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 100);
       });
     };
 
