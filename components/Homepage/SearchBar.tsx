@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
 
 export default function SearchBar() {
-  const { searchInputValue, setSearchInputValue } = useSearchKanjiContext();
+  const { setSearchInputValue } = useSearchKanjiContext();
   const [inputListener, setInputListener] = useState();
 
   /* set search value only after user finishes typing */

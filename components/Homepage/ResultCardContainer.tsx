@@ -6,12 +6,15 @@ import ResultCard from "../ResultCard/Card";
 import KanjiResultSkeleton from "../ResultCard/CardSkeleton";
 import { IResultCard } from "@/interfaces";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
+import { useFilterContext } from "@/context/FilterContext";
 
 export default function ResultCardContainer() {
   const { searchInputValue } = useSearchKanjiContext();
   const [data, setData] = useState<IResultCard[]>();
   const [errorStatus, setErrorStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { jlptFilter, gradeFilter, searchByFilter } = useFilterContext();
 
   /* Fetch to search-kanji API */
   useEffect(() => {
