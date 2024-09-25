@@ -22,7 +22,7 @@ export default function ResultCardContainer() {
       try {
         setIsLoading(true);
 
-        const res = await fetch(`/api/search-kanji?query=${searchInputValue}`);
+        const res = await fetch(`/api/search-kanji?q=${searchInputValue}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
 
         if (!res.ok) {
           setIsLoading(false);
