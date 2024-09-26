@@ -46,7 +46,7 @@ export default function ResultCardContainer() {
     } else {
       setData([]);
     }
-  }, [searchInputValue]);
+  }, [searchInputValue, jlptFilter, gradeFilter, searchByFilter]);
 
   if (isLoading && searchInputValue != undefined) return <KanjiResultSkeleton />
 
