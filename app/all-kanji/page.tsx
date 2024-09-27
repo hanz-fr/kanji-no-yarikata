@@ -57,6 +57,7 @@ const AllKanjiPage = () => {
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N5Kanji?.map((e) => (
           <Link
+            key={e.id}
             href={`/kanji/${e.id}`}
             className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
           >
@@ -74,6 +75,7 @@ const AllKanjiPage = () => {
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N4Kanji?.map((e) => (
           <Link
+            key={e.id}
             href={`/kanji/${e.id}`}
             className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
           >
@@ -91,6 +93,7 @@ const AllKanjiPage = () => {
       <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
         {N3Kanji?.map((e) => (
           <Link
+            key={e.id}
             href={`/kanji/${e.id}`}
             className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
           >
