@@ -2,7 +2,7 @@
 
 import { MdOutlineError } from 'react-icons/md'
 
-export default function Error(props: { code: number, status: string }) {
+export default function Error(props: { code: string, status: string }) {
   return (
     <div className="flex flex-col justify-between gap-[10px] h-screen px-5 py-3">
       <span></span>

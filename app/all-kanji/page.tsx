@@ -7,6 +7,7 @@ import Loading from "./loading";
 import { FiArrowLeft } from "react-icons/fi";
 import { IKanji } from "@/interfaces";
 import Link from "next/link";
+import Error from "./error";
 
 const AllKanjiPage = () => {
   const router = useRouter();
@@ -14,6 +15,8 @@ const AllKanjiPage = () => {
   const [N5Kanji, setN5Kanji] = useState<IKanji[]>();
   const [N4Kanji, setN4Kanji] = useState<IKanji[]>();
   const [N3Kanji, setN3Kanji] = useState<IKanji[]>();
+  const [errorStatus, setErrorStatus] = useState("");
+  const [errorCode, setErrorCode] = useState("");
 
   useEffect(() => {
     const fetchData = () => {
@@ -22,13 +25,19 @@ const AllKanjiPage = () => {
       const fetchN3 = fetch(`/api/kanji/jlpt?query=N3`);
 
       Promise.all([fetchN5, fetchN4, fetchN3]).then(async (values) => {
-        const N5res = await values[0].json();
-        const N4res = await values[1].json();
-        const N3res = await values[2].json();
+        if (values[0].status != 200) {
+          setErrorStatus(values[0].statusText);
+          setErrorCode(values[0].status.toString());
+        } else {
+          const N5res = await values[0].json();
+          const N4res = await values[1].json();
+          const N3res = await values[2].json();
 
-        setN5Kanji(await N5res.data);
-        setN4Kanji(await N4res.data);
-        setN3Kanji(await N3res.data);
+          setN5Kanji(await N5res.data);
+          setN4Kanji(await N4res.data);
+          setN3Kanji(await N3res.data);
+        }
+
 
         setTimeout(() => setIsLoading(false), 100);
       });
@@ -36,6 +45,8 @@ const AllKanjiPage = () => {
 
     fetchData();
   }, []);
+
+  if ((N5Kanji && N4Kanji && N3Kanji) == undefined) return <Error code={errorCode} status={errorStatus} />
 
   return isLoading ? (
     <Loading />
