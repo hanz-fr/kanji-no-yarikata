@@ -43,11 +43,11 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
     fetchData();
   }, []);
 
+  if (isLoading) return <Loading/>
+
   if (errorStatus != "") return <Error code={errorCode} status={errorStatus} />;
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <div className="flex flex-col gap-[10px] px-5 py-3">
       <div className="w-full md:w-1/2 md:mx-auto">
         <FiArrowLeft

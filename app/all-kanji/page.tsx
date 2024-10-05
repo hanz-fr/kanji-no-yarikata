@@ -46,11 +46,11 @@ const AllKanjiPage = () => {
     fetchData();
   }, []);
 
-  if ((N5Kanji && N4Kanji && N3Kanji) == undefined) return <Error code={errorCode} status={errorStatus} />
+  if (isLoading) return <Loading/>
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  if (errorStatus != "") return <Error code={errorCode} status={errorStatus} />;
+
+  return (
     <div className="flex flex-col justify-center w-full p-5 md:w-1/2 md:mx-auto">
       <FiArrowLeft
         className="mb-5 cursor-pointer"
