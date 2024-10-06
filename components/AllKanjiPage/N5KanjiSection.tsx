@@ -1,0 +1,28 @@
+import { IKanji } from "@/interfaces";
+import Link from "next/link";
+import React from "react";
+
+export default function N5KanjiSection(props: { N5Kanji: IKanji[] | undefined }) {
+  return (
+    <>
+      {/* N5 Kanji */}
+      <div className="flex flex-col">
+        <span>N5 Kanji</span>
+        <hr className="border-black dark:border-white mt-3" />
+      </div>
+      <div className="grid grid-cols-4 md:grid-cols-5 py-5 gap-y-4 place-items-center">
+        {props.N5Kanji?.map((e) => (
+          <Link
+            key={e.id}
+            href={`/kanji/${e.id}`}
+            className="w-14 h-14 border-[1px] rounded-sm border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <span className="h-full items-center flex justify-center">
+              {e.kanji}
+            </span>
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+}
