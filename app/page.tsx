@@ -5,7 +5,7 @@ import SearchAndResultContainer from "@/components/Homepage/SearchAndResultConta
 import SearchBar from "@/components/Homepage/SearchBar";
 import ResultCardContainer from "@/components/Homepage/ResultCardContainer";
 import EmptyDiv from "@/components/Homepage/EmptyDiv";
-import { DarkModeButton } from "@/components/DarkModeButton";
+import { Header } from "@/components/Header";
 import { SearchKanjiProvider } from "@/context/SearchKanjiContextProvider";
 import { FilterProvider } from "@/context/FilterContextProvider";
 
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <SearchKanjiProvider>
         <FilterProvider>
-          <DarkModeButton />
+          <Header />
           <Container>
             <EmptyDiv />
             <SearchAndResultContainer>

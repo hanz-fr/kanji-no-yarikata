@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export function DarkModeButton() {
+export function Header() {
   const { setTheme } = useTheme()
 
   return (
