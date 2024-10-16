@@ -56,7 +56,7 @@ export function Header() {
             <FiSettings className="h-[1.2rem] w-[1.2rem] " />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px] bg-gray-200">
+        <DialogContent className="sm:max-w-[425px] bg-gray-100 dark:bg-zinc-900 dark:border-zinc-800">
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
             <DialogDescription>
