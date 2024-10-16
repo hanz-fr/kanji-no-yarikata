@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import FilterDropdown from "../FilterDropdown";
+import FilterDropdown from "./FilterDropdown";
 import { Input } from "../ui/input";
 import { useSearchKanjiContext } from "@/context/SearchKanjiContext";
 

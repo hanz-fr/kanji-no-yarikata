@@ -5,7 +5,7 @@ import SearchAndResultContainer from "@/components/Homepage/SearchAndResultConta
 import SearchBar from "@/components/Homepage/SearchBar";
 import ResultCardContainer from "@/components/Homepage/ResultCardContainer";
 import EmptyDiv from "@/components/Homepage/EmptyDiv";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/Homepage/Header";
 import { SearchKanjiProvider } from "@/context/SearchKanjiContextProvider";
 import { FilterProvider } from "@/context/FilterContextProvider";
 
