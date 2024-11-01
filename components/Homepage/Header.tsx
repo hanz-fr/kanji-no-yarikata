@@ -7,6 +7,7 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { FiSettings } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 
 import {
   Dialog,
@@ -59,10 +60,9 @@ export function Header() {
         <DialogContent className="sm:max-w-[425px] bg-gray-100 dark:bg-zinc-900 dark:border-zinc-800">
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
           </DialogHeader>
+          <DialogDescription>Turn off kana reading</DialogDescription>
+          <Switch color="black" />
           <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter>
