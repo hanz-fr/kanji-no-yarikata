@@ -61,8 +61,10 @@ export function Header() {
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
           </DialogHeader>
-          <DialogDescription>Turn off kana reading</DialogDescription>
-          <Switch color="black" />
+          <div className="flex justify-between my-5">
+            <DialogDescription>Turn off kana reading</DialogDescription>
+            <Switch />
+          </div>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter>
