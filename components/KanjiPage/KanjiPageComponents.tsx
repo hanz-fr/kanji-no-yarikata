@@ -17,10 +17,10 @@ export function KanjiHeadingContainer(kanjiData: {
         </span>
         <span className="flex justify-center">({kanjiData?.meaning})</span>
         <div className="flex justify-center gap-2">
-          <Button className="p-3 rounded-full bg-[#D9D9D9] ">
+          <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
             <FiVolume2 className="text-lg" color="black" />
           </Button>
-          <Button className="p-3 rounded-full bg-[#D9D9D9] ">
+          <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
             <MdOutlineDraw className="text-lg" color="black" />
           </Button>
         </div>
