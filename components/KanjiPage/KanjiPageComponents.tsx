@@ -1,9 +1,11 @@
+"use client";
+
 import React from "react";
 
-import { Button } from "../ui/button";
+import KanjiReferenceHover from "../KanjiReferenceHover/KanjiReferenceHover";
 import { FiVolume2 } from "react-icons/fi";
 import { MdOutlineDraw } from "react-icons/md";
-import KanjiReferenceHover from "../KanjiReferenceHover/KanjiReferenceHover";
+import { Button } from "../ui/button";
 
 export function KanjiHeadingContainer(kanjiData: {
   kanji: string | undefined;
@@ -28,7 +30,6 @@ export function KanjiHeadingContainer(kanjiData: {
     </div>
   );
 }
-
 
 export function JlptGradeStrokesContainer(kanjiData: {
   jlpt: string | undefined;
@@ -57,13 +58,14 @@ export function JlptGradeStrokesContainer(kanjiData: {
   );
 }
 
-
 export function OnyomiKunyomiContainer(kanjiData: {
   onyomi: string | undefined;
   onyomiRomaji: string | undefined;
   kunyomi: string | undefined;
   kunyomiRomaji: string | undefined;
 }) {
+  let isKanaReadingActive = localStorage.getItem("kanaReadingState");
+
   return (
     <div className="flex flex-col w-full px-5 gap-4 justify-evenly md:w-1/2 md:mx-auto h-1/2 rounded-sm border py-4">
       <div className="flex justify-start gap-7">
@@ -72,13 +74,13 @@ export function OnyomiKunyomiContainer(kanjiData: {
             音読み
           </div>
           <span className="font-thin text-xs text-center text-[#767676] dark:text-[#8d8d8d]">
-            on'yomi
+            {isKanaReadingActive == "true" ? "on'yomi" : ""}
           </span>
         </div>
         <div className="flex flex-col">
           <span className="text-sm">{kanjiData?.onyomi}</span>
           <span className="text-sm text-[#9E9E9E] font-thin">
-            {kanjiData?.onyomiRomaji}
+            {isKanaReadingActive == "true" && kanjiData?.onyomiRomaji}
           </span>
         </div>
       </div>
@@ -88,20 +90,19 @@ export function OnyomiKunyomiContainer(kanjiData: {
             訓読み
           </div>
           <span className="font-thin text-xs text-center text-[#767676] dark:text-[#8d8d8d]">
-            kun'yomi
+            {isKanaReadingActive == "true" ? "kun'yomi" : ""}
           </span>
         </div>
         <div className="flex flex-col">
           <span className="text-sm">{kanjiData?.kunyomi}</span>
           <span className="text-sm text-[#9E9E9E] font-thin">
-            {kanjiData?.kunyomiRomaji}
+            {isKanaReadingActive == "true" && kanjiData?.kunyomiRomaji}
           </span>
         </div>
       </div>
     </div>
   );
 }
-
 
 export function MainInformationContainer(kanjiData: {
   radical: string | undefined;
@@ -141,7 +142,6 @@ export function MainInformationContainer(kanjiData: {
     </div>
   );
 }
-
 
 export function KanjiExamplesContainer(kanjiData: {
   kanjiExamples: Object[] | undefined;

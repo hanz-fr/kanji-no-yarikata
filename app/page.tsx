@@ -8,13 +8,16 @@ import EmptyDiv from "@/components/Homepage/EmptyDiv";
 import { Header } from "@/components/Homepage/Header";
 import { SearchKanjiProvider } from "@/context/SearchKanjiContextProvider";
 import { FilterProvider } from "@/context/FilterContextProvider";
+import { KanaReadingProvider } from "@/context/KanaReadingContextProvider";
 
 export default function Home() {
   return (
     <>
       <SearchKanjiProvider>
         <FilterProvider>
-          <Header />
+          <KanaReadingProvider>
+            <Header />
+          </KanaReadingProvider>
           <Container>
             <EmptyDiv />
             <SearchAndResultContainer>

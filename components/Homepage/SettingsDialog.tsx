@@ -1,12 +1,25 @@
-import React from "react";
+"use client";
 
-import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "../ui/dialog";
+import React, { useState } from "react";
+
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "../ui/dialog";
 import { Switch } from "../ui/switch";
 import { FiSettings } from "react-icons/fi";
 import { Button } from "../ui/button";
-import { DialogHeader, DialogFooter } from "../ui/dialog";
+import { DialogHeader } from "../ui/dialog";
+import { useKanaReadingContext } from "@/context/KanaReadingContext";
+import { useRouter } from "next/navigation";
 
 export default function SettingsDialog() {
+  const { isKanaReadingActive, setActiveValue } = useKanaReadingContext();
+  const router = useRouter();
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -19,12 +32,15 @@ export default function SettingsDialog() {
           <DialogTitle>Settings</DialogTitle>
         </DialogHeader>
         <div className="flex justify-between my-5">
-          <DialogDescription>Turn off kana reading</DialogDescription>
-          <Switch />
+          <DialogDescription>Show rōmaji reading</DialogDescription>
+          <Switch
+            checked={isKanaReadingActive}
+            onCheckedChange={() => {
+              setActiveValue(!isKanaReadingActive)
+              router.refresh()
+            }}
+          />
         </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
