@@ -64,7 +64,7 @@ export function OnyomiKunyomiContainer(kanjiData: {
   kunyomi: string | undefined;
   kunyomiRomaji: string | undefined;
 }) {
-  let isKanaReadingActive = localStorage.getItem("kanaReadingState");
+  let isRomajiReadingActive = localStorage.getItem("romajiReadingState");
 
   return (
     <div className="flex flex-col w-full px-5 gap-4 justify-evenly md:w-1/2 md:mx-auto h-1/2 rounded-sm border py-4">
@@ -74,13 +74,13 @@ export function OnyomiKunyomiContainer(kanjiData: {
             音読み
           </div>
           <span className="font-thin text-xs text-center text-[#767676] dark:text-[#8d8d8d]">
-            {isKanaReadingActive == "true" ? "on'yomi" : ""}
+            {isRomajiReadingActive == "true" ? "on'yomi" : ""}
           </span>
         </div>
         <div className="flex flex-col">
           <span className="text-sm">{kanjiData?.onyomi}</span>
           <span className="text-sm text-[#9E9E9E] font-thin">
-            {isKanaReadingActive == "true" && kanjiData?.onyomiRomaji}
+            {isRomajiReadingActive == "true" && kanjiData?.onyomiRomaji}
           </span>
         </div>
       </div>
@@ -90,13 +90,13 @@ export function OnyomiKunyomiContainer(kanjiData: {
             訓読み
           </div>
           <span className="font-thin text-xs text-center text-[#767676] dark:text-[#8d8d8d]">
-            {isKanaReadingActive == "true" ? "kun'yomi" : ""}
+            {isRomajiReadingActive == "true" ? "kun'yomi" : ""}
           </span>
         </div>
         <div className="flex flex-col">
           <span className="text-sm">{kanjiData?.kunyomi}</span>
           <span className="text-sm text-[#9E9E9E] font-thin">
-            {isKanaReadingActive == "true" && kanjiData?.kunyomiRomaji}
+            {isRomajiReadingActive == "true" && kanjiData?.kunyomiRomaji}
           </span>
         </div>
       </div>

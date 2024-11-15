@@ -13,11 +13,11 @@ import { Switch } from "../ui/switch";
 import { FiSettings } from "react-icons/fi";
 import { Button } from "../ui/button";
 import { DialogHeader } from "../ui/dialog";
-import { useKanaReadingContext } from "@/context/KanaReadingContext";
+import { useRomajiReadingContext } from "@/context/RomajiReadingContext";
 import { useRouter } from "next/navigation";
 
 export default function SettingsDialog() {
-  const { isKanaReadingActive, setActiveValue } = useKanaReadingContext();
+  const { isRomajiReadingActive, setActiveValue } = useRomajiReadingContext();
   const router = useRouter();
 
   return (
@@ -34,9 +34,9 @@ export default function SettingsDialog() {
         <div className="flex justify-between my-5">
           <DialogDescription>Show rōmaji reading</DialogDescription>
           <Switch
-            checked={isKanaReadingActive}
+            checked={isRomajiReadingActive}
             onCheckedChange={() => {
-              setActiveValue(!isKanaReadingActive)
+              setActiveValue(!isRomajiReadingActive)
               router.refresh()
             }}
           />

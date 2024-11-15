@@ -45,11 +45,11 @@ export const OnKun = (props: {
   kunyomiRomaji: string;
 }) => {
 
-  let isKanaReadingActive = localStorage.getItem("kanaReadingState");
+  let isRomajiReadingActive = localStorage.getItem("romajiReadingState");
 
   return (
     <div className="flex gap-2 md:gap-4">
-      <div className={`flex flex-col ${isKanaReadingActive == 'true' ? 'gap-5 my-3' : 'gap-3 my-2'}`}>
+      <div className={`flex flex-col ${isRomajiReadingActive == 'true' ? 'gap-5 my-3' : 'gap-3 my-2'}`}>
         <div className="px-1 text-nowrap text-xs text-center text-[#C2C2C2] border">
           音読み
         </div>
@@ -57,14 +57,14 @@ export const OnKun = (props: {
           訓読み
         </div>
       </div>
-      <div className={`flex flex-col gap-2 ${isKanaReadingActive == 'true' ? 'my-2' : 'my-auto'}`}>
+      <div className={`flex flex-col gap-2 ${isRomajiReadingActive == 'true' ? 'my-2' : 'my-auto'}`}>
         <div className="flex flex-col">
           <span className="onyomi-text">{props.onyomi}</span>
-          <span className="onyomi-romaji-text">{isKanaReadingActive == 'true' && props.onyomiRomaji}</span>
+          <span className="onyomi-romaji-text">{isRomajiReadingActive == 'true' && props.onyomiRomaji}</span>
         </div>
         <div className="flex flex-col">
           <div className="kunyomi-text">{props.kunyomi}</div>
-          <div className="kunyomi-romaji-text">{isKanaReadingActive == 'true' && props.kunyomiRomaji}</div>
+          <div className="kunyomi-romaji-text">{isRomajiReadingActive == 'true' && props.kunyomiRomaji}</div>
         </div>
       </div>
     </div>
