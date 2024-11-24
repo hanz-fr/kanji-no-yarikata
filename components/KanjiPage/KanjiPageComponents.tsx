@@ -4,7 +4,7 @@ import React from "react";
 
 import KanjiReferenceHover from "../KanjiReferenceHover/KanjiReferenceHover";
 import { FiVolume2 } from "react-icons/fi";
-import { MdOutlineDraw } from "react-icons/md";
+import { DrawKanjiContainer } from "./DrawKanjiContainer";
 import { Button } from "../ui/button";
 
 export function KanjiHeadingContainer(kanjiData: {
@@ -22,9 +22,7 @@ export function KanjiHeadingContainer(kanjiData: {
           <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
             <FiVolume2 className="text-lg" color="black" />
           </Button>
-          <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
-            <MdOutlineDraw className="text-lg" color="black" />
-          </Button>
+          <DrawKanjiContainer/>
         </div>
       </div>
     </div>

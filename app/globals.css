@@ -28,4 +28,8 @@
   .vertical-separator {
     @apply h-auto border-l-[1px] border-l-[#D0D0D0]
   }
+
+  .dialog-content {
+    @apply sm:max-w-[425px] bg-white dark:bg-zinc-900 dark:border-zinc-800
+  }
 }
