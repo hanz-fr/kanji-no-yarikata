@@ -14,6 +14,7 @@ export interface IKanji {
   frequency: string;
   joyoListStatus: string;
   mnemonic: string;
+  svg: string;
   kanjiExamples: Array<object>;
   kanjiComponents: Array<String>;
 }

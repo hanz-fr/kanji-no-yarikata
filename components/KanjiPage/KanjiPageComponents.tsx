@@ -10,6 +10,7 @@ import { Button } from "../ui/button";
 export function KanjiHeadingContainer(kanjiData: {
   kanji: string | undefined;
   meaning: string | undefined;
+  svg: string | undefined;
 }) {
   return (
     <div className="flex justify-center w-full">
@@ -22,7 +23,7 @@ export function KanjiHeadingContainer(kanjiData: {
           <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
             <FiVolume2 className="text-lg" color="black" />
           </Button>
-          <DrawKanjiContainer/>
+          <DrawKanjiContainer kanjiSvg={kanjiData?.svg as string}/>
         </div>
       </div>
     </div>

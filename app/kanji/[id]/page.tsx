@@ -62,6 +62,7 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
       <KanjiHeadingContainer
         kanji={kanjiData?.kanji}
         meaning={kanjiData?.meaning}
+        svg={kanjiData?.svg}
       />
       <JlptGradeStrokesContainer
         jlpt={kanjiData?.jlpt}

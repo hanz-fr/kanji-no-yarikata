@@ -15,12 +15,12 @@ const DrawKanjiSVG: React.FC<IDrawKanjiSVG> = ({ svg }) => {
       const svgText = await svg;
 
       /* Remove ]> or any stray characters from drawing */
-      const sanitizedSvgText = svgText.replace(/]>|<!\[CDATA\[|\]\]>/g, "");
+      const sanitizedSvgText = svgText?.replace(/]>|<!\[CDATA\[|\]\]>/g, "");
 
       const container = document.getElementById("drawing-container");
       if (!container) return;
 
-      container.innerHTML = sanitizedSvgText;
+      container.innerHTML = sanitizedSvgText as string;
 
       const svgElement = container.querySelector("svg");
       if (!(svgElement instanceof SVGElement)) {

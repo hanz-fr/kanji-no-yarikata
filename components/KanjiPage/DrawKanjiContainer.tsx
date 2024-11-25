@@ -11,7 +11,7 @@ import {
 import { MdOutlineDraw } from "react-icons/md";
 import DrawKanjiSVG from "./DrawKanjiSVG";
 
-export function DrawKanjiContainer() {
+export function DrawKanjiContainer(props: {kanjiSvg: string}) {
   
   const getKanjiSVG = async (unicode: string): Promise<string> => {
     const current_url_host = window.location.origin;
@@ -23,7 +23,7 @@ export function DrawKanjiContainer() {
     return res.text();
   };
 
-  const kanjiSVG = getKanjiSVG('0516d');
+  const kanjiSVG = getKanjiSVG(props.kanjiSvg);
 
   return (
     <Dialog>
