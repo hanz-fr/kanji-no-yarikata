@@ -11,11 +11,12 @@ import {
 import { MdOutlineDraw } from "react-icons/md";
 import DrawKanjiSVG from "./DrawKanjiSVG";
 
-export function DrawKanjiContainer(props: {kanjiSvg: string}) {
-  
+export function DrawKanjiContainer(props: { kanjiSvg: string }) {
+  let kanjiSVG;
+
   const getKanjiSVG = async (unicode: string): Promise<string> => {
     const current_url_host = window.location.origin;
-  
+
     const res = await fetch(`${current_url_host}/kanjivg/kanji/${unicode}.svg`);
     if (!res.ok) {
       throw new Error("Failed to load SVG");
@@ -23,7 +24,11 @@ export function DrawKanjiContainer(props: {kanjiSvg: string}) {
     return res.text();
   };
 
-  const kanjiSVG = getKanjiSVG(props.kanjiSvg);
+  if (props.kanjiSvg != "") {
+    kanjiSVG = getKanjiSVG(props.kanjiSvg);
+  } else {
+    kanjiSVG = undefined
+  }
 
   return (
     <Dialog>
@@ -35,7 +40,8 @@ export function DrawKanjiContainer(props: {kanjiSvg: string}) {
       <DialogContent className="dialog-content">
         <DialogHeader>
           <DialogTitle>Drawing</DialogTitle>
-          <DrawKanjiSVG svg={kanjiSVG} />
+          {kanjiSVG != undefined && <DrawKanjiSVG svg={kanjiSVG} />}
+          {kanjiSVG == undefined && <p>No drawing for this kanji.</p>}
           <DialogDescription />
         </DialogHeader>
       </DialogContent>

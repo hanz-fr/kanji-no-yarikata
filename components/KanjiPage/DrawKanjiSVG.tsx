@@ -2,7 +2,7 @@ import { SVG, Svg } from "@svgdotjs/svg.js";
 import { useTheme } from "next-themes";
 
 interface IDrawKanjiSVG {
-  svg: Promise<string>;
+  svg: Promise<string> | string | undefined;
 }
 
 const DrawKanjiSVG: React.FC<IDrawKanjiSVG> = ({ svg }) => {
