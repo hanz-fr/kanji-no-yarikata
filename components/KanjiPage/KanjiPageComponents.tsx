@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import KanjiReferenceHover from "../KanjiReferenceHover/KanjiReferenceHover";
 import { FiVolume2 } from "react-icons/fi";
@@ -12,6 +12,27 @@ export function KanjiHeadingContainer(kanjiData: {
   meaning: string | undefined;
   svg: string | undefined;
 }) {
+
+  const [utterIsPlaying, setUtterIsPlaying] = useState(false); 
+
+  const TextToSpeechKanji = (text: string) => {
+    const voices = window.speechSynthesis.getVoices();
+
+    const kanjiTTS = new SpeechSynthesisUtterance(text);
+
+    /* TTS Properties */
+    kanjiTTS.lang = 'ja-JP';
+    kanjiTTS.voice = voices.find(voice => voice.lang === 'ja-JP') as SpeechSynthesisVoice;
+    kanjiTTS.rate = 0.8;
+    kanjiTTS.pitch = 1.2;
+    
+    /* Setting flags for button, button will be disabled if utter is playing */
+    kanjiTTS.onstart = (e: any) => setUtterIsPlaying(true);
+    kanjiTTS.onend = (e: any) => setUtterIsPlaying(false); 
+
+    window.speechSynthesis.speak(kanjiTTS);
+  };
+
   return (
     <div className="flex justify-center w-full">
       <div className="flex flex-col gap-3">
@@ -20,10 +41,14 @@ export function KanjiHeadingContainer(kanjiData: {
         </span>
         <span className="flex justify-center">({kanjiData?.meaning})</span>
         <div className="flex justify-center gap-2">
-          <Button className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] ">
+          <Button
+            className="p-3 rounded-full bg-[#D9D9D9] hover:bg-[#c5c5c5] "
+            onClick={() => TextToSpeechKanji(kanjiData?.kanji as string)}
+            disabled={utterIsPlaying}
+          >
             <FiVolume2 className="text-lg" color="black" />
           </Button>
-          <DrawKanjiContainer kanjiSvg={kanjiData?.svg as string}/>
+          <DrawKanjiContainer kanjiSvg={kanjiData?.svg as string} />
         </div>
       </div>
     </div>
