@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("query");
 
-  let data = await fetch(`${API_URL}/kanji/jlpt?query=${query}`);
+  let data = await fetch(`${API_URL}/kanji`);
   let res = await data.json();
 
   return Response.json(res);
