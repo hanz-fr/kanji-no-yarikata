@@ -5,31 +5,42 @@ import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { IKanji } from "@/interfaces";
 import Loading from "./loading";
+import Error from "./error";
 import { Button } from "@/components/ui/button";
 
 export default function AdminKanjiIndexPage() {
   const [data, setData] = useState<IKanji[]>();
   const [isLoading, setIsLoading] = useState(true);
+  const [errorStatus, setErrorStatus] = useState("");
+  const [errorCode, setErrorCode] = useState("");
 
   useEffect(() => {
     async function fetchAllKanji() {
-      const res = await fetch("/api/all-kanji");
+      try {
+        const res = await fetch("/api/all-kanji");
 
-      if (!res.ok) {
+        if (!res.ok) {
+          setErrorStatus(res.statusText);
+          setErrorCode(res.status.toString());
+        }
+
+        const result = await res.json();
+        setData(result.data);
         setIsLoading(false);
-        throw new Error("Error, something bad happened.");
+      } catch (error) {
+        setData(undefined);
+        console.error("Error fetching kanji data:", error);
+      } finally {
+        setTimeout(() => setIsLoading(false));
       }
-
-      const result = await res.json();
-      setData(result.data);
-      setIsLoading(false);
-      console.log(result.data);
     }
 
     fetchAllKanji();
   }, []);
 
   if (isLoading) return <Loading />;
+
+  if (errorStatus != "") return <Error code={errorCode} status={errorStatus} />;
 
   return (
     <>
