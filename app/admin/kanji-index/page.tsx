@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
+import Error from "./error";
+import Loading from "./loading";
+import AddKanjiIndexDialog from "@/components/AdminPage/AddKanjiIndexDialog";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { IKanji } from "@/interfaces";
-import Loading from "./loading";
-import Error from "./error";
-import { Button } from "@/components/ui/button";
 
 export default function AdminKanjiIndexPage() {
   const [data, setData] = useState<IKanji[]>();
@@ -45,7 +46,7 @@ export default function AdminKanjiIndexPage() {
   return (
     <>
       <div className="flex w-full justify-end my-2">
-        <Button className="mr-3">Add</Button>
+        <AddKanjiIndexDialog/>
       </div>
       <DataTable columns={columns} data={data!} />
     </>
