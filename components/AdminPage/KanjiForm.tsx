@@ -1,9 +1,12 @@
 "use client";
 
+import React, { useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { CgSpinner } from "react-icons/cg";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,6 +17,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import KanjiFormSuccess from "./KanjiFormSuccess";
+import KanjiFormFailed from "./KanjiFormFailed";
+import { error } from "console";
 
 const formSchema = z.object({
   id: z
@@ -33,11 +39,14 @@ const formSchema = z.object({
   jlpt: z.string().nonempty({
     message: "JLPT can't be empty.",
   }),
-  grade: z.coerce.number().gte(1, {
-    message: "Lowest grade is 1.",
-  }).lte(9, {
-    message: "Maximum grade is 9."
-  }),
+  grade: z.coerce
+    .number()
+    .gte(1, {
+      message: "Lowest grade is 1.",
+    })
+    .lte(9, {
+      message: "Maximum grade is 9.",
+    }),
   strokeCount: z.coerce.number().gte(1, {
     message: "Stroke can't be 0.",
   }),
@@ -46,7 +55,7 @@ const formSchema = z.object({
   kunyomi: z.string(),
   kunyomiRomaji: z.string(),
   radical: z.string().min(1, {
-    message: "Must be at least 1 character."
+    message: "Must be at least 1 character.",
   }),
   radicalNumber: z.coerce.number(),
   frequency: z.string(),
@@ -56,6 +65,11 @@ const formSchema = z.object({
 });
 
 export function KanjiForm() {
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<Boolean>();
+  const [errorCode, setErrorCode] = useState<number>();
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,9 +92,35 @@ export function KanjiForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    const req = await fetch("/api/post-kanji", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    const res = await req.json();
+
+    if (res?.status != 201) {
+      setIsLoading(false);
+      setIsSuccess(false);
+
+      setErrorCode(res?.status);
+      setErrorMsg(res?.message);
+      return;
+    }
+
+    setIsLoading(false);
+    setIsSuccess(true);
+    return;
   }
+
+  if (isSuccess) return <KanjiFormSuccess />;
+
+  if (isSuccess != true && isSuccess != undefined)
+    return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
 
   return (
     <Form {...form}>
@@ -107,7 +147,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -120,7 +160,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -133,7 +173,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -146,7 +186,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input type="number" min={1} max={9} {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -159,7 +199,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input type="number" min={1} {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -172,7 +212,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -185,7 +225,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -198,7 +238,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -211,7 +251,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -224,7 +264,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -237,7 +277,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input type="number" min={1} {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -250,7 +290,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -263,7 +303,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -276,7 +316,7 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
@@ -289,11 +329,17 @@ export function KanjiForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage className="font-normal text-orange-400"/>
+              <FormMessage className="font-normal text-orange-400" />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">
+          {isLoading ? (
+            <CgSpinner size={20} className="animate-spin duration-300" />
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
     </Form>
   );
