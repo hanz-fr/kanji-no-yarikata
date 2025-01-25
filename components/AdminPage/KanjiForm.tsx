@@ -64,8 +64,8 @@ const formSchema = z.object({
 });
 
 export function KanjiForm() {
-  const [isLoading, setIsLoading] = useState<Boolean>(false);
-  const [isSuccess, setIsSuccess] = useState<Boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>();
   const [errorCode, setErrorCode] = useState<number>();
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -118,7 +118,7 @@ export function KanjiForm() {
 
   if (isSuccess) return <KanjiFormSuccess />;
 
-  if (isSuccess != true && isSuccess != undefined)
+  if (isSuccess == false && isSuccess != undefined)
     return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
 
   return (
@@ -332,13 +332,15 @@ export function KanjiForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">
-          {isLoading ? (
-            <CgSpinner size={20} className="animate-spin duration-300" />
-          ) : (
-            "Submit"
-          )}
-        </Button>
+        <div className="flex justify-end">
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <CgSpinner size={20} className="animate-spin duration-300" />
+            ) : (
+              "Submit"
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );
