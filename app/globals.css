@@ -30,7 +30,7 @@
   }
 
   .dialog-content {
-    @apply sm:max-w-[425px] bg-white dark:bg-zinc-900 dark:border-zinc-800
+    @apply sm:max-w-[425px] bg-white dark:bg-zinc-950 dark:border-zinc-800
   }
 }
 

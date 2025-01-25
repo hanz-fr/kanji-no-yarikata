@@ -66,7 +66,7 @@ const formSchema = z.object({
 
 export function KanjiForm() {
   const [isLoading, setIsLoading] = useState<Boolean>(false);
-  const [isSuccess, setIsSuccess] = useState<Boolean>();
+  const [isSuccess, setIsSuccess] = useState<Boolean>(false);
   const [errorCode, setErrorCode] = useState<number>();
   const [errorMsg, setErrorMsg] = useState<string>("");
 
