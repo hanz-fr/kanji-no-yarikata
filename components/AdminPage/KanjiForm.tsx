@@ -19,7 +19,6 @@ import {
 import { Input } from "@/components/ui/input";
 import KanjiFormSuccess from "./KanjiFormSuccess";
 import KanjiFormFailed from "./KanjiFormFailed";
-import { error } from "console";
 
 const formSchema = z.object({
   id: z
@@ -66,7 +65,7 @@ const formSchema = z.object({
 
 export function KanjiForm() {
   const [isLoading, setIsLoading] = useState<Boolean>(false);
-  const [isSuccess, setIsSuccess] = useState<Boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<Boolean>();
   const [errorCode, setErrorCode] = useState<number>();
   const [errorMsg, setErrorMsg] = useState<string>("");
 
