@@ -30,6 +30,18 @@
   }
 
   .dialog-content {
-    @apply sm:max-w-[425px] bg-white dark:bg-zinc-900 dark:border-zinc-800
+    @apply sm:max-w-[425px] bg-white dark:bg-zinc-950 dark:border-zinc-800
   }
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
 }
