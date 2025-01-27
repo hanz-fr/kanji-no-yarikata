@@ -2,10 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { IKanji } from "@/interfaces";
-
-const handleView = (row: any) => {
-  console.log("View: ", row);
-};
+import { FiEdit, FiTrash } from "react-icons/fi";
 
 const handleDelete = (row: any) => {
   console.log("Delete: ", row);
@@ -92,24 +89,18 @@ export const columns: ColumnDef<IKanji>[] = [
     id: "actions",
     header: "Actions",
     cell: ({ row }) => (
-      <div className="flex space-x-2">
-        <button
-          onClick={() => handleView(row.original)}
-          className="text-blue-500"
-        >
-          View
-        </button>
+      <div className="flex space-x-4">
         <button
           onClick={() => handleEdit(row.original)}
           className="text-yellow-500"
         >
-          Edit
+          <FiEdit size={20} />
         </button>
         <button
           onClick={() => handleDelete(row.original)}
           className="text-red-500"
         >
-          Delete
+          <FiTrash size={20} />
         </button>
       </div>
     ),
