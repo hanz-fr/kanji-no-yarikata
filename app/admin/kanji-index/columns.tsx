@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { IKanji } from "@/interfaces";
 import { FiEdit, FiTrash } from "react-icons/fi";
+import DeleteKanjiIndexDialog from "@/components/AdminPage/DeleteKanjiIndexDialog";
 
 const handleDelete = (row: any) => {
   console.log("Delete: ", row);
@@ -100,7 +101,7 @@ export const columns: ColumnDef<IKanji>[] = [
           onClick={() => handleDelete(row.original)}
           className="text-red-500"
         >
-          <FiTrash size={20} />
+          <DeleteKanjiIndexDialog />
         </button>
       </div>
     ),

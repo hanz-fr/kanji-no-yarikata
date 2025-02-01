@@ -16,7 +16,7 @@ export default function AddKanjiIndexDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">Add</Button>
+        <Button>Add</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] dialog-content h-2/3 overflow-y-scroll">
         <DialogHeader>
