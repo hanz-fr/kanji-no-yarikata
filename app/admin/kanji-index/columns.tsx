@@ -98,10 +98,9 @@ export const columns: ColumnDef<IKanji>[] = [
           <FiEdit size={20} />
         </button>
         <button
-          onClick={() => handleDelete(row.original)}
           className="text-red-500"
         >
-          <DeleteKanjiIndexDialog />
+          <DeleteKanjiIndexDialog id={row.original.id} />
         </button>
       </div>
     ),

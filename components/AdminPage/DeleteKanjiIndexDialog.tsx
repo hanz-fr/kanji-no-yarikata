@@ -13,7 +13,26 @@ import {
 } from "@/components/ui/alert-dialog";
 import { FiTrash } from "react-icons/fi";
 
-export default function DeleteKanjiIndexDialog() {
+export default function DeleteKanjiIndexDialog(props: { id: any }) {
+
+  const deleteKanji = async () => {
+    try {
+      const req = await fetch(`/api/delete-kanji?id=${props.id}`, {
+        method: "DELETE",
+      });
+      const res = await req.json();
+
+      if (res?.status != 200) {
+        console.error("Error, something bad happened.");
+        return
+      }
+
+    } catch (e: any) {
+      console.error(e);
+      return
+    }
+  };
+
   return (
     <AlertDialog>
       <AlertDialogTrigger>
@@ -28,7 +47,9 @@ export default function DeleteKanjiIndexDialog() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-red-500">Continue</AlertDialogAction>
+          <AlertDialogAction className="bg-red-500" onClick={deleteKanji}>
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
