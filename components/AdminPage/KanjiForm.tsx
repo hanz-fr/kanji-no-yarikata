@@ -118,8 +118,7 @@ export function KanjiForm() {
 
   if (isSuccess) return <KanjiFormSuccess />;
 
-  if (isSuccess == false && isSuccess != undefined)
-    return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
+  if (isSuccess == false && isSuccess != undefined) return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
 
   return (
     <Form {...form}>
