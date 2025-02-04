@@ -27,10 +27,16 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`/api/get-kanji?id=${id}`);
+      const json = await res.json();
+      const data = await json.data;
+
+      if (data == null) {
+        setErrorCode(404);
+        setErrorStatus("Can't find the kanji you're looking for.");
+        setIsLoading(false);
+      }
 
       if (res.ok) {
-        const json = await res.json();
-        const data = await json.data;
         setKanjiData(data);
         setTimeout(() => setIsLoading(false), 100);
       } else {
