@@ -12,12 +12,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { FiTrash } from "react-icons/fi";
-import { useRouter } from "next/navigation";
 
 export default function DeleteKanjiIndexDialog(props: { id: any }) {
 
-  const router = useRouter();
-  
   const deleteKanji = async () => {
     try {
       const req = await fetch(`/api/delete-kanji?id=${props.id}`, {
@@ -30,7 +27,7 @@ export default function DeleteKanjiIndexDialog(props: { id: any }) {
         return
       }
 
-      router.refresh();
+      location.reload();
     } catch (e: any) {
       console.error(e);
       return
