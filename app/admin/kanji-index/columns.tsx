@@ -2,15 +2,11 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { IKanji } from "@/interfaces";
-import { FiEdit, FiTrash } from "react-icons/fi";
 import DeleteKanjiIndexDialog from "@/components/AdminPage/DeleteKanjiIndexDialog";
-
-const handleDelete = (row: any) => {
-  console.log("Delete: ", row);
-};
+import EditKanjiIndexDialog from "@/components/AdminPage/EditKanjiIndexDialog";
 
 const handleEdit = (row: any) => {
-  console.log("Edit: ", row);
+  console.log(typeof(row));
 };
 
 export const columns: ColumnDef<IKanji>[] = [
@@ -95,7 +91,7 @@ export const columns: ColumnDef<IKanji>[] = [
           onClick={() => handleEdit(row.original)}
           className="text-yellow-500"
         >
-          <FiEdit size={20} />
+          <EditKanjiIndexDialog kanji={row.original}/>
         </button>
         <button
           className="text-red-500"
