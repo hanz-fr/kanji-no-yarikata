@@ -5,10 +5,6 @@ import { IKanji } from "@/interfaces";
 import DeleteKanjiIndexDialog from "@/components/AdminPage/DeleteKanjiIndexDialog";
 import EditKanjiIndexDialog from "@/components/AdminPage/EditKanjiIndexDialog";
 
-const handleEdit = (row: any) => {
-  console.log(typeof(row));
-};
-
 export const columns: ColumnDef<IKanji>[] = [
   {
     accessorKey: "id",
@@ -87,17 +83,8 @@ export const columns: ColumnDef<IKanji>[] = [
     header: "Actions",
     cell: ({ row }) => (
       <div className="flex space-x-4">
-        <button
-          onClick={() => handleEdit(row.original)}
-          className="text-yellow-500"
-        >
-          <EditKanjiIndexDialog kanji={row.original}/>
-        </button>
-        <button
-          className="text-red-500"
-        >
-          <DeleteKanjiIndexDialog id={row.original.id} />
-        </button>
+        <EditKanjiIndexDialog kanji={row.original} />
+        <DeleteKanjiIndexDialog id={row.original.id} />
       </div>
     ),
   },

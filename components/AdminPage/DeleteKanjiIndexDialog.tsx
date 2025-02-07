@@ -37,7 +37,7 @@ export default function DeleteKanjiIndexDialog(props: { id: any }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <FiTrash size={20} />
+        <FiTrash size={20} color="#ff454e"/>
       </AlertDialogTrigger>
       <AlertDialogContent className="dialog-content">
         <AlertDialogHeader>

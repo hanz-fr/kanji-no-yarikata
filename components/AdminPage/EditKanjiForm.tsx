@@ -94,8 +94,8 @@ export function EditKanjiForm(props: { selectedKanji: IKanji }) {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    const req = await fetch("/api/post-kanji", {
-      method: "POST",
+    const req = await fetch("/api/edit-kanji", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -103,7 +103,9 @@ export function EditKanjiForm(props: { selectedKanji: IKanji }) {
     });
     const res = await req.json();
 
-    if (res?.status != 201) {
+    console.log("RES: ", res);
+
+    if (res?.status != 200) {
       setIsLoading(false);
       setIsSuccess(false);
 
@@ -117,7 +119,7 @@ export function EditKanjiForm(props: { selectedKanji: IKanji }) {
     return;
   }
 
-  if (isSuccess) return <KanjiFormSuccess />;
+  if (isSuccess) return <KanjiFormSuccess message={"Kanji successfully updated."} />;
 
   if (isSuccess == false && isSuccess != undefined) return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
 
@@ -131,7 +133,7 @@ export function EditKanjiForm(props: { selectedKanji: IKanji }) {
             <FormItem>
               <FormLabel>Kanji ID</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} disabled={true} />
               </FormControl>
               <FormMessage className="font-normal text-orange-400" />
             </FormItem>

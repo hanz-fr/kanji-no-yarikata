@@ -14,8 +14,8 @@ import { IKanji } from "@/interfaces";
 export default function EditKanjiIndexDialog(props: { kanji: object }) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <FiEdit size={20} />
+      <DialogTrigger>
+        <FiEdit size={20} color="#f0bc3a" />
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] dialog-content h-2/3 overflow-y-scroll">
         <DialogHeader>

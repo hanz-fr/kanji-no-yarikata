@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { KanjiForm } from "./KanjiForm";
+import { AddKanjiForm } from "./AddKanjiForm";
 
 export default function AddKanjiIndexDialog() {
   return (
@@ -20,7 +20,7 @@ export default function AddKanjiIndexDialog() {
         <DialogHeader>
           <DialogTitle>Add New Kanji</DialogTitle>
         </DialogHeader>
-        <KanjiForm />
+        <AddKanjiForm />
       </DialogContent>
     </Dialog>
   );

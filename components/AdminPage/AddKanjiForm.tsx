@@ -63,7 +63,7 @@ const formSchema = z.object({
   svg: z.string(),
 });
 
-export function KanjiForm() {
+export function AddKanjiForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>();
   const [errorCode, setErrorCode] = useState<number>();
@@ -116,7 +116,7 @@ export function KanjiForm() {
     return;
   }
 
-  if (isSuccess) return <KanjiFormSuccess />;
+  if (isSuccess) return <KanjiFormSuccess message="Kanji successfully added." />;
 
   if (isSuccess == false && isSuccess != undefined) return <KanjiFormFailed errorCode={errorCode!} errorMessage={errorMsg!} />;
 
