@@ -1,5 +1,6 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { FiHome } from "react-icons/fi";
 
@@ -10,7 +11,7 @@ export default function AdminPage() {
         <span className="text-2xl font-bold">漢字のやり方 Admin</span>
         <div className="flex gap-3">
           <Link href={"/"}>
-            <Button>
+            <Button variant={"outline"}>
               <FiHome size={20} />
             </Button>
           </Link>

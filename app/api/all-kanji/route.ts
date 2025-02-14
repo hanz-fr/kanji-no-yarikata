@@ -1,9 +1,5 @@
-import { type NextRequest } from "next/server";
-
-export async function GET(request: NextRequest) {
+export async function GET() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get("query");
 
   let data = await fetch(`${API_URL}/kanji`);
   let res = await data.json();

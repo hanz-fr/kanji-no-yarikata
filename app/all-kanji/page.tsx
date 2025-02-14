@@ -4,12 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Loading from "./loading";
-import { FiArrowLeft } from "react-icons/fi";
-import { IKanji } from "@/interfaces";
 import Error from "./error";
 import N5KanjiSection from "@/components/AllKanjiPage/N5KanjiSection";
 import N4KanjiSection from "@/components/AllKanjiPage/N4KanjiSection";
 import N3KanjiSection from "@/components/AllKanjiPage/N3KanjiSection";
+import { FiArrowLeft } from "react-icons/fi";
+import { IKanji } from "@/interfaces";
 
 const AllKanjiPage = () => {
   const router = useRouter();

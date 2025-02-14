@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 
+import KanjiFormSuccess from "./KanjiFormSuccess";
+import KanjiFormFailed from "./KanjiFormFailed";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { CgSpinner } from "react-icons/cg";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +18,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import KanjiFormSuccess from "./KanjiFormSuccess";
-import KanjiFormFailed from "./KanjiFormFailed";
 
 const formSchema = z.object({
   id: z

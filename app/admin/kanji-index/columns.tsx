@@ -1,9 +1,9 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
-import { IKanji } from "@/interfaces";
 import DeleteKanjiIndexDialog from "@/components/AdminPage/DeleteKanjiIndexDialog";
 import EditKanjiIndexDialog from "@/components/AdminPage/EditKanjiIndexDialog";
+import { ColumnDef } from "@tanstack/react-table";
+import { IKanji } from "@/interfaces";
 
 export const columns: ColumnDef<IKanji>[] = [
   {
