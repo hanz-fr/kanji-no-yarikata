@@ -128,19 +128,6 @@ export function EditKanjiForm(props: { selectedKanji: IKanji }) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="id"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Kanji ID</FormLabel>
-              <FormControl>
-                <Input {...field} disabled={true} />
-              </FormControl>
-              <FormMessage className="font-normal text-orange-400" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="kanji"
           render={({ field }) => (
             <FormItem>
