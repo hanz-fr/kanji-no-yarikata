@@ -23,10 +23,11 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
   const [kanjiData, setKanjiData] = useState<IKanji>();
   const [errorStatus, setErrorStatus] = useState("");
   const [errorCode, setErrorCode] = useState(0);
-
+  
+  // TODO: Figure out why fetch kanji by id not working
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/get-kanji?id=${id}`);
+      const res = await fetch(`/api/firebase/kanji/id?query=${id}`);
       const json = await res.json();
       const data = await json.data;
 
