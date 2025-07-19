@@ -28,10 +28,9 @@ const KanjiPage = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`/api/firebase/kanji/id?query=${id}`);
-      const json = await res.json();
-      const data = await json.data;
-
-      if (data == null) {
+      const data = await res.json();
+      
+      if (data.status == 204) {
         setErrorCode(404);
         setErrorStatus("Can't find the kanji you're looking for.");
         setIsLoading(false);

@@ -1,20 +1,27 @@
-import { NextResponse, NextRequest } from "next/server";
-import { db } from "@/lib/firebaseAdmin";
+import { NextRequest } from "next/server";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-// TODO: Figure out why fetch kanji by id not working
-export async function GET(req: NextRequest, res: NextResponse) {
-  
+export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
-  const id = searchParams.get('query');
+  const id = searchParams.get("query") as string;
 
   try {
-    const kanjiRef = db.collection('Kanji').doc(id!.toString());
-    const doc = await kanjiRef.get();
-    return Response.json(doc.data());
+    const docRef = doc(db, "Kanji", id);
+    const docSnap = await getDoc(docRef);
+    
+    if (docSnap.exists()) {
+      return Response.json(docSnap.data());
+    } else {
+      return Response.json({
+        status: 204,
+        message: `No kanji found with '${id}' id.`
+      })
+    }
   } catch (error) {
     return Response.json({
       status: 500,
       error: error,
-    })
+    });
   }
 }

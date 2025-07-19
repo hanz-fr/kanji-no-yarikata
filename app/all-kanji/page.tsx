@@ -44,7 +44,6 @@ const AllKanjiPage = () => {
         setN5Kanji(N5Data);
         setN4Kanji(N4Data);
         setN3Kanji(N3Data);
-        console.log(N5Data);
       } catch (error) {
         console.error('Error fetching kanji data:', error);
       } finally {
