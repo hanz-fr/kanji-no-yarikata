@@ -15,7 +15,7 @@ export default function N4KanjiSection(props: {N4Kanji: IKanji[] | undefined }) 
           <Link
             key={e.id}
             href={`/kanji/${e.id}`}
-            className="w-20 h-20 border-[1px] rounded-md border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+            className="w-16 h-16 border-[1px] rounded-md border-[#E4E4E4] hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
           >
             <span className="h-full items-center flex justify-center text-xl">
               {e.kanji}
