@@ -22,7 +22,7 @@ export default function ResultCardContainer() {
       try {
         setIsLoading(true);
 
-        const res = await fetch(`/api/firebase/kanji/search?q=${searchInputValue.toLowerCase()}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
+        const res = await fetch(`/api/firebase/kanji/search?q=${searchInputValue}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
 
         if (!res.ok) {
           setIsLoading(false);
@@ -40,7 +40,7 @@ export default function ResultCardContainer() {
       }
     }
 
-    /* Only fetch when there is an input from user. */
+    /* Only fetch when there is input from user. */
     if (searchInputValue != "") {
       fetchData();
     } else {

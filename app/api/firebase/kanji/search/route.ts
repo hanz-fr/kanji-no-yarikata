@@ -18,6 +18,7 @@ export async function GET(req: NextRequest) {
     let queries = [];
     let jlptClause = [];
     let gradeClause = [];
+    let lowerCaseSearch = keyword.toLowerCase();
 
     jlpt.length > 0 && jlpt != "all"
       ? jlptClause.push(jlpt)
@@ -31,43 +32,43 @@ export async function GET(req: NextRequest) {
       queries.push(
         query(
           kanjiRef,
-          where("kanji", ">=", keyword),
-          where("kanji", "<", keyword + "\uf8ff"),
+          where("kanji", ">=", lowerCaseSearch),
+          where("kanji", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),
         query(
           kanjiRef,
-          where("meaning", ">=", keyword),
-          where("meaning", "<", keyword + "\uf8ff"),
+          where("meaning", ">=", lowerCaseSearch),
+          where("meaning", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),
         query(
           kanjiRef,
-          where("onyomi", ">=", keyword),
-          where("onyomi", "<", keyword + "\uf8ff"),
+          where("onyomi", ">=", lowerCaseSearch),
+          where("onyomi", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),
         query(
           kanjiRef,
-          where("onyomiRomaji", ">=", keyword),
-          where("onyomiRomaji", "<", keyword + "\uf8ff"),
+          where("onyomiRomaji", ">=", lowerCaseSearch),
+          where("onyomiRomaji", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),
         query(
           kanjiRef,
-          where("kunyomi", ">=", keyword),
-          where("kunyomi", "<", keyword + "\uf8ff"),
+          where("kunyomi", ">=", lowerCaseSearch),
+          where("kunyomi", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),
         query(
           kanjiRef,
-          where("kunyomiRomaji", ">=", keyword),
-          where("kunyomiRomaji", "<", keyword + "\uf8ff"),
+          where("kunyomiRomaji", ">=", lowerCaseSearch),
+          where("kunyomiRomaji", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         )
@@ -76,7 +77,7 @@ export async function GET(req: NextRequest) {
       queries.push(
         query(
           kanjiRef,
-          where(searchBy, "==", keyword),
+          where(searchBy, "==", lowerCaseSearch),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         )
