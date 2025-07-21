@@ -22,7 +22,7 @@ export default function ResultCardContainer() {
       try {
         setIsLoading(true);
 
-        const res = await fetch(`/api/firebase/kanji/search?q=${searchInputValue}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
+        const res = await fetch(`/api/firebase/kanji/search?q=${searchInputValue.toLowerCase()}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
 
         if (!res.ok) {
           setIsLoading(false);
