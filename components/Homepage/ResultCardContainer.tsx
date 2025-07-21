@@ -22,7 +22,7 @@ export default function ResultCardContainer() {
       try {
         setIsLoading(true);
 
-        const res = await fetch(`/api/search-kanji?q=${searchInputValue}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
+        const res = await fetch(`/api/firebase/kanji/search?q=${searchInputValue}-${jlptFilter}-${gradeFilter}-${searchByFilter}`);
 
         if (!res.ok) {
           setIsLoading(false);
@@ -31,7 +31,7 @@ export default function ResultCardContainer() {
 
         const result = await res.json();
 
-        setData(result.data);
+        setData(result);
         setIsLoading(false);
 
       } catch (e: any) {

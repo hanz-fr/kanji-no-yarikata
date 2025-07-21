@@ -19,6 +19,7 @@
 # misc
 .DS_Store
 *.pem
+/lib/kanji-no-yarikata-firebase-adminsdk-fbsvc-9ce139fa7a.json
 
 # debug
 npm-debug.log*

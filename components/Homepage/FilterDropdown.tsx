@@ -35,7 +35,7 @@ const FilterDropdown = () => {
       <DropdownMenuTrigger className="border rounded-md rounded-tl-none border-[#D0D0D0] dark:border-zinc-800 border-l-0 rounded-bl-none px-3 hover:bg-gray-100 dark:hover:bg-zinc-900 transition-colors">
         <FiSliders />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="">
+      <DropdownMenuContent>
         <DropdownMenuLabel>Filters</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

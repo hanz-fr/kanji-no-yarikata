@@ -24,9 +24,9 @@ const AllKanjiPage = () => {
     const fetchData = async () => {
       try {
         const [N5res, N4res, N3res] = await Promise.all([
-          fetch(`/api/kanji/jlpt?query=N5`),
-          fetch(`/api/kanji/jlpt?query=N4`),
-          fetch(`/api/kanji/jlpt?query=N3`)
+          fetch('/api/firebase/kanji/jlpt?query=N5'),
+          fetch('/api/firebase/kanji/jlpt?query=N4'),
+          fetch('/api/firebase/kanji/jlpt?query=N3')
         ]);
     
         if (!N5res.ok) {
@@ -34,16 +34,16 @@ const AllKanjiPage = () => {
           setErrorCode(N5res.status.toString());
           return;
         }
-    
+
         const [N5Data, N4Data, N3Data] = await Promise.all([
           N5res.json(),
           N4res.json(),
-          N3res.json()
+          N3res.json(),
         ]);
     
-        setN5Kanji(N5Data.data);
-        setN4Kanji(N4Data.data);
-        setN3Kanji(N3Data.data);
+        setN5Kanji(N5Data);
+        setN4Kanji(N4Data);
+        setN3Kanji(N3Data);
       } catch (error) {
         console.error('Error fetching kanji data:', error);
       } finally {
