@@ -7,6 +7,11 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
+// TODO: 効率的な検索のために、各漢字のプレフィックスをつくりたいとおもいます。
+// 理由：例えば、’生’の訓読みは’い(きる)’。だけどその組み合わせるのことは無理だ.
+// もしユーザがサーチボックスに’いきる’を入力して、検索の結果は表示されません
+
+
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
   const filterQuery = searchParams.get("q");
