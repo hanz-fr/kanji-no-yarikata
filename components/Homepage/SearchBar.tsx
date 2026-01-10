@@ -10,7 +10,7 @@ export default function SearchBar() {
   const { setSearchInputValue } = useSearchKanjiContext();
   const [inputListener, setInputListener] = useState();
 
-  /* set search value only after user finishes typing */
+  /* set search value only after user finishes typing (Debounce) */
   useEffect(() => {
     const delaySearchFn = setTimeout(() => {
       setSearchInputValue(inputListener!);

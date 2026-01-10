@@ -39,8 +39,8 @@ export async function GET(req: NextRequest) {
         ),
         query(
           kanjiRef,
-          where("meaning", ">=", lowerCaseSearch),
-          where("meaning", "<", lowerCaseSearch + "\uf8ff"),
+          where("meaningLowercase", ">=", lowerCaseSearch),
+          where("meaningLowercase", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
         ),

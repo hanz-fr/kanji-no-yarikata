@@ -31,6 +31,8 @@ export default function ResultCardContainer() {
 
         const result = await res.json();
 
+        console.log(result);
+
         setData(result);
         setIsLoading(false);
 
