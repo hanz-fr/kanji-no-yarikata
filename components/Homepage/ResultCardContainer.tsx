@@ -28,11 +28,9 @@ export default function ResultCardContainer() {
           setIsLoading(false);
           throw new Error("Error, something bad happened.");
         }
-
+        
         const result = await res.json();
-
-        console.log(result);
-
+        
         setData(result);
         setIsLoading(false);
 

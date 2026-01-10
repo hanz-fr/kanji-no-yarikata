@@ -28,7 +28,28 @@ export async function GET(req: NextRequest) {
       ? gradeClause.push(parseInt(grade))
       : gradeClause.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-    if (searchBy.length <= 0 || searchBy == "all") {
+    if (searchBy.length > 0 && searchBy !== "all") {
+      if (searchBy === "kanji" || searchBy === "meaningLowercase") {
+        queries.push(
+          query(
+            kanjiRef,
+            where(searchBy, ">=", lowerCaseSearch),
+            where(searchBy, "<", lowerCaseSearch + "\uf8ff"),
+            where("grade", "in", gradeClause),
+            where("jlpt", "in", jlptClause)
+          )
+        );
+      } else {
+        queries.push(
+          query(
+            kanjiRef,
+            where(searchBy, "array-contains", lowerCaseSearch),
+            where("grade", "in", gradeClause),
+            where("jlpt", "in", jlptClause)
+          )
+        );
+      }
+    } else {
       queries.push(
         query(
           kanjiRef,
@@ -43,54 +64,53 @@ export async function GET(req: NextRequest) {
           where("meaningLowercase", "<", lowerCaseSearch + "\uf8ff"),
           where("grade", "in", gradeClause),
           where("jlpt", "in", jlptClause)
-        ),
-        query(
-          kanjiRef,
-          where("onyomi", ">=", lowerCaseSearch),
-          where("onyomi", "<", lowerCaseSearch + "\uf8ff"),
-          where("grade", "in", gradeClause),
-          where("jlpt", "in", jlptClause)
-        ),
-        query(
-          kanjiRef,
-          where("onyomiRomaji", ">=", lowerCaseSearch),
-          where("onyomiRomaji", "<", lowerCaseSearch + "\uf8ff"),
-          where("grade", "in", gradeClause),
-          where("jlpt", "in", jlptClause)
-        ),
-        query(
-          kanjiRef,
-          where("kunyomi", ">=", lowerCaseSearch),
-          where("kunyomi", "<", lowerCaseSearch + "\uf8ff"),
-          where("grade", "in", gradeClause),
-          where("jlpt", "in", jlptClause)
-        ),
-        query(
-          kanjiRef,
-          where("kunyomiRomaji", ">=", lowerCaseSearch),
-          where("kunyomiRomaji", "<", lowerCaseSearch + "\uf8ff"),
-          where("grade", "in", gradeClause),
-          where("jlpt", "in", jlptClause)
         )
       );
-    } else {
-      queries.push(
-        query(
-          kanjiRef,
-          where(searchBy, "==", lowerCaseSearch),
-          where("grade", "in", gradeClause),
-          where("jlpt", "in", jlptClause)
-        )
+
+      const readingsQuery = query(
+        kanjiRef,
+        where("grade", "in", gradeClause),
+        where("jlpt", "in", jlptClause)
       );
+      
+      queries.push(readingsQuery);
     }
 
-    const snapshots = await Promise.all(queries!.map((q) => getDocs(q)));
+    const snapshots = await Promise.all(queries.map((q) => getDocs(q)));
 
     const allDocsMap = new Map();
 
-    snapshots.forEach((snapshot) => {
+    snapshots.forEach((snapshot, index) => {
       snapshot.forEach((doc) => {
-        allDocsMap.set(doc.id, { id: doc.id, ...doc.data() });
+        const data = doc.data();
+        
+        if (searchBy.length <= 0 || searchBy === "all") {
+          if (index === 2) {
+            const kunyomi = data.kunyomi || [];
+            const onyomi = data.onyomi || [];
+            const kunyomiRomaji = data.kunyomiRomaji || [];
+            const onyomiRomaji = data.onyomiRomaji || [];
+            
+            const allReadings = [
+              ...kunyomi,
+              ...onyomi,
+              ...kunyomiRomaji,
+              ...onyomiRomaji
+            ];
+            
+            const hasMatch = allReadings.some(reading =>
+              reading && reading.toLowerCase().includes(lowerCaseSearch)
+            );
+            
+            if (hasMatch) {
+              allDocsMap.set(doc.id, { id: doc.id, ...data });
+            }
+          } else {
+            allDocsMap.set(doc.id, { id: doc.id, ...data });
+          }
+        } else {
+          allDocsMap.set(doc.id, { id: doc.id, ...data });
+        }
       });
     });
 

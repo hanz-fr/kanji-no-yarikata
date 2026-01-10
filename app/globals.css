@@ -10,19 +10,19 @@
 
 @layer components {
   .onyomi-text {
-    @apply w-20 sm:w-32 md:w-fit truncate text-nowrap text-xs md:text-sm font-light
+    @apply flex gap-2 w-20 sm:w-32 md:w-fit truncate text-nowrap text-xs md:text-sm font-light
   };
 
   .onyomi-romaji-text {
-    @apply w-20 sm:w-32 md:w-fit truncate text-nowrap text-xs md:text-sm text-[#949494] font-light
+    @apply flex gap-2 w-20 sm:w-32 md:w-fit truncate text-nowrap text-xs md:text-sm text-[#949494] font-light
   };
 
   .kunyomi-text {
-    @apply w-20 sm:w-32 md:w-40 truncate text-nowrap text-xs md:text-sm font-light
+    @apply flex gap-2 w-20 sm:w-32 md:w-40 truncate text-nowrap text-xs md:text-sm font-light
   }
 
   .kunyomi-romaji-text {
-    @apply w-20 sm:w-32 md:w-40 truncate text-nowrap text-xs md:text-sm text-[#949494] font-light
+    @apply flex gap-2 w-20 sm:w-32 md:w-40 truncate text-nowrap text-xs md:text-sm text-[#949494] font-light
   }
 
   .vertical-separator {
@@ -35,7 +35,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;

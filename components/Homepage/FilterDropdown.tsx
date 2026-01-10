@@ -86,7 +86,7 @@ const FilterDropdown = () => {
               <SelectContent>
                 <SelectItem value="all">All</SelectItem>
                 <SelectItem value="kanji">Kanji</SelectItem>
-                <SelectItem value="meaning">Meaning</SelectItem>
+                <SelectItem value="meaningLowercase">Meaning</SelectItem>
                 <SelectItem value="onyomi">On'yomi</SelectItem>
                 <SelectItem value="kunyomi">Kun'yomi</SelectItem>
               </SelectContent>

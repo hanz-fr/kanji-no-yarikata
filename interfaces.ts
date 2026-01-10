@@ -5,10 +5,10 @@ export interface IKanji {
   jlpt: string;
   grade: number;
   strokeCount: number;
-  onyomi: string;
-  onyomiRomaji: string;
-  kunyomi: string;
-  kunyomiRomaji: string;
+  onyomi: string[];
+  onyomiRomaji: string[];
+  kunyomi: string[];
+  kunyomiRomaji: string[];
   radical: string;
   radicalNumber: number;
   frequency: string;
@@ -23,8 +23,8 @@ export interface IResultCard {
   id?: string;
   kanji?: string;
   meaning?: string;
-  kunyomi?: string;
-  kunyomiRomaji?: string;
-  onyomi?: string;
-  onyomiRomaji?: string;
+  kunyomi?: string[];
+  kunyomiRomaji?: string[];
+  onyomi?: string[];
+  onyomiRomaji?: string[];
 }

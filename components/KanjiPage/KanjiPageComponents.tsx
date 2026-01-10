@@ -83,10 +83,10 @@ export function JlptGradeStrokesContainer(kanjiData: {
 }
 
 export function OnyomiKunyomiContainer(kanjiData: {
-  onyomi: string | undefined;
-  onyomiRomaji: string | undefined;
-  kunyomi: string | undefined;
-  kunyomiRomaji: string | undefined;
+  onyomi: string[] | undefined;
+  onyomiRomaji: string[] | undefined;
+  kunyomi: string[] | undefined;
+  kunyomiRomaji: string[] | undefined;
 }) {
   let isRomajiReadingActive = localStorage.getItem("romajiReadingState");
 
@@ -102,9 +102,9 @@ export function OnyomiKunyomiContainer(kanjiData: {
           </span>
         </div>
         <div className="flex flex-col">
-          <span className="text-sm">{kanjiData?.onyomi}</span>
-          <span className="text-sm text-[#9E9E9E] font-thin">
-            {isRomajiReadingActive == "true" && kanjiData?.onyomiRomaji}
+          <span className="text-sm flex gap-4">{kanjiData?.onyomi?.map((e, index) => <p key={index}>{e}</p>)}</span>
+          <span className="text-sm flex gap-2 text-[#9E9E9E] font-thin">
+            {isRomajiReadingActive == "true" && kanjiData?.onyomiRomaji?.map((e, index) => <p key={index}>{e}</p>)}
           </span>
         </div>
       </div>
@@ -117,10 +117,10 @@ export function OnyomiKunyomiContainer(kanjiData: {
             {isRomajiReadingActive == "true" ? "kun'yomi" : ""}
           </span>
         </div>
-        <div className="flex flex-col">
-          <span className="text-sm">{kanjiData?.kunyomi}</span>
-          <span className="text-sm text-[#9E9E9E] font-thin">
-            {isRomajiReadingActive == "true" && kanjiData?.kunyomiRomaji}
+        <div className="flex flex-col overflow-x-auto">
+          <span className="text-sm flex gap-4">{kanjiData?.kunyomi?.map((e, index) => <p key={index}>{e}</p>)}</span>
+          <span className="text-sm flex gap-2 text-[#9E9E9E] font-thin">
+            {isRomajiReadingActive == "true" && kanjiData?.kunyomiRomaji?.map((e, index) => <p key={index}>{e}</p>)}
           </span>
         </div>
       </div>
