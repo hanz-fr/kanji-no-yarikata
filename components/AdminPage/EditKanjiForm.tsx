@@ -50,10 +50,10 @@ const formSchema = z.object({
   strokeCount: z.coerce.number().gte(1, {
     message: "Stroke can't be 0.",
   }),
-  onyomi: z.string(),
-  onyomiRomaji: z.string(),
-  kunyomi: z.string(),
-  kunyomiRomaji: z.string(),
+  onyomi: z.array(z.string()),
+  onyomiRomaji: z.array(z.string()),
+  kunyomi: z.array(z.string()),
+  kunyomiRomaji: z.array(z.string()),
   radical: z.string().min(1, {
     message: "Must be at least 1 character.",
   }),
