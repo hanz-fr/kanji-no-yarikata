@@ -24,7 +24,7 @@ export default function SettingsDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button className="my-auto" size="icon" variant="outline">
-          <FiSettings className="h-[1.2rem] w-[1.2rem] " />
+          <FiSettings className="h-[1.3rem] w-[1.3rem]"/>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] bg-white dark:bg-zinc-900 dark:border-zinc-800">

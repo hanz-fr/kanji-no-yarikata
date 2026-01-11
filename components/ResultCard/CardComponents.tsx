@@ -59,12 +59,12 @@ export const OnKun = (props: {
       </div>
       <div className={`flex flex-col gap-2 ${isRomajiReadingActive == 'true' ? 'my-2' : 'my-auto'}`}>
         <div className="flex flex-col">
-          <span className="onyomi-text">{props.onyomi.map((e) => <p>{e}</p>)}</span>
-          <span className="onyomi-romaji-text">{isRomajiReadingActive == 'true' && props.onyomiRomaji.map((e) => <p>{e}</p>)}</span>
+          <span className="onyomi-text">{props.onyomi.map((e, index) => <p key={index}>{e}</p>)}</span>
+          <span className="onyomi-romaji-text">{isRomajiReadingActive == 'true' && props.onyomiRomaji.map((e, index) => <p key={index}>{e}</p>)}</span>
         </div>
         <div className="flex flex-col">
-          <span className="kunyomi-text">{props.kunyomi.map((e) => <p>{e}</p>)}</span>
-          <div className="kunyomi-romaji-text">{isRomajiReadingActive == 'true' && props.kunyomiRomaji.map((e) => <p>{e}</p>)}</div>
+          <span className="kunyomi-text">{props.kunyomi.map((e, index) => <p key={index}>{e}</p>)}</span>
+          <div className="kunyomi-romaji-text">{isRomajiReadingActive == 'true' && props.kunyomiRomaji.map((e, index) => <p key={index}>{e}</p>)}</div>
         </div>
       </div>
     </div>

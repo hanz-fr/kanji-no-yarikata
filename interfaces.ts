@@ -28,3 +28,14 @@ export interface IResultCard {
   onyomi?: string[];
   onyomiRomaji?: string[];
 }
+
+export interface ICredits {
+  id: string;
+  author: string;
+  description: string;
+  link: string;
+}
+
+export interface ICreditSection {
+  credits?: ICredits[] | null;
+}
